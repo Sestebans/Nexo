@@ -15,7 +15,11 @@ Nexo/
 │   │   ├── brief-final.md
 │   │   └── presentacion-v2/
 │   ├── corte-2/
+│   │   ├── README.md        galería de todo el corte 2
 │   │   ├── flujograma/
+│   │   ├── pantallas-baja/
+│   │   ├── lluvia-de-ideas/
+│   │   ├── referentes/
 │   │   ├── ui-kit/
 │   │   ├── pantallas-alta/
 │   │   └── presentacion-proceso/
