@@ -1,45 +1,37 @@
 # Nexo
 
-Proyecto de Lenguajes Digitales 3.
+Proyecto de Lenguajes Digitales 3 · Creación Digital.
+**Tu primer copiloto financiero** — Andrés Daza y Sergio Suárez.
+
+## Entregables
+
+Todo está en PDF. El del corte 2 tiene portada, índice y marcadores para saltar entre secciones.
+
+| Corte | Entregable | Archivo |
+|---|---|---|
+| 1 | Brief y benchmark finales | [docs/corte-1/brief-y-benchmark-finales/brief-y-benchmark-finales.pdf](docs/corte-1/brief-y-benchmark-finales/brief-y-benchmark-finales.pdf) |
+| 1 | Presentación final | [docs/corte-1/presentacion-v2/presentacion-final-copiloto-financiero.pdf](docs/corte-1/presentacion-v2/presentacion-final-copiloto-financiero.pdf) |
+| 2 | Flujogramas, referentes, lluvia de ideas y pantallas de baja y alta fidelidad | [docs/corte-2/corte-2-nexo.pdf](docs/corte-2/corte-2-nexo.pdf) |
+
+## Contenido del PDF del corte 2
+
+1. Flujogramas de usuario
+2. Referentes externos
+3. Lluvia de ideas
+4. Pantallas de baja fidelidad
+5. Pantallas de alta fidelidad
 
 ## Estructura
 
 ```
 Nexo/
 ├── README.md
-├── spec/
-│   └── spec.md              CDUs felices y no felices, alcance del MVP (se actualiza en cada iteración)
-├── docs/
-│   ├── corte-1/
-│   │   ├── benchmark/
-│   │   ├── brief-final.md
-│   │   └── presentacion-v2/
-│   ├── corte-2/
-│   │   ├── README.md        galería de todo el corte 2
-│   │   ├── flujograma/
-│   │   ├── pantallas-baja/
-│   │   ├── lluvia-de-ideas/
-│   │   ├── referentes/
-│   │   ├── ui-kit/
-│   │   ├── pantallas-alta/
-│   │   └── presentacion-proceso/
-│   └── corte-3/
-│       ├── testing/
-│       ├── portafolio/
-│       └── deck-final/
-├── src/
-│   ├── frontend/
-│   ├── backend/
-│   └── database/
-└── assets/                  exports de Figma: imágenes, iconos, ilustraciones
+└── docs/
+    ├── corte-1/
+    │   ├── brief-y-benchmark-finales/
+    │   └── presentacion-v2/
+    └── corte-2/
+        └── corte-2-nexo.pdf
 ```
 
-## Ciclo de trabajo
-
-```bash
-git status                 # ver qué cambió
-git add .                  # elegir qué guardar
-git commit -m "mensaje"    # guardar una versión con mensaje
-git push                   # subirla a GitHub
-git pull                   # traer lo que otros subieron
-```
+Las carpetas de los cortes siguientes se agregan cuando haya algo que entregar.
