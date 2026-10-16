@@ -1,7 +1,7 @@
 # Nexo
 
 Proyecto de Lenguajes Digitales 3 · Creación Digital.
-**Tu primer copiloto financiero** — Andrés Daza y Sergio Suárez.
+**Tu primer copiloto financiero** — Andrés Daza, Sergio Suárez y Sofía Rey.
 
 ## Entregables
 
