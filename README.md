@@ -30,8 +30,12 @@ Nexo/
     ├── corte-1/
     │   ├── brief-y-benchmark-finales/
     │   └── presentacion-v2/
-    └── corte-2/
-        └── corte-2-nexo.pdf
+    ├── corte-2/
+    │   └── corte-2-nexo.pdf
+    └── corte-3/
+        ├── testing/
+        ├── portafolio/
+        └── deck-final/
 ```
 
-Las carpetas de los cortes siguientes se agregan cuando haya algo que entregar.
+Las carpetas de `corte-3` están listas para recibir los entregables finales.
