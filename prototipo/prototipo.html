@@ -1,0 +1,1071 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXO — Flujo de pantallas en baja fidelidad</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#e9e9e9}
+.scr{min-height:100vh;display:flex;align-items:flex-start;padding:24px 0}
+.scr > *{flex-shrink:0;margin:0 auto}
+#s-f1-1-carrusel{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-1-carrusel *{box-sizing:border-box}
+#s-f1-1-carrusel .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-1-carrusel .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-1-carrusel .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-1-carrusel .iconbtn svg{width:16px;height:16px}
+#s-f1-1-carrusel .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-1-carrusel .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f1-1-carrusel .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f1-1-carrusel .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f1-1-carrusel .field{display:flex;flex-direction:column;gap:6px}
+#s-f1-1-carrusel .field label{font-size:12px;color:#000;opacity:.6}
+#s-f1-1-carrusel .field input,#s-f1-1-carrusel .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f1-1-carrusel .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f1-1-carrusel .btn-primary{background:#000;color:#fff}
+#s-f1-1-carrusel .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f1-1-carrusel .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f1-1-carrusel .navitem svg{width:20px;height:20px}
+#s-f1-1-carrusel .navitem.active{font-weight:700}
+#s-f1-1-carrusel .dot{width:8px;height:8px;border-radius:50%;background:#000}
+#s-f1-1-carrusel .dot.off{opacity:.2}
+#s-f1-1-carrusel .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-1-carrusel .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-1-carrusel .name{font-size:14px;font-weight:700}
+#s-f1-1-carrusel .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-2-datos-iniciales{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-2-datos-iniciales *{box-sizing:border-box}
+#s-f1-2-datos-iniciales .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-2-datos-iniciales .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-2-datos-iniciales .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-2-datos-iniciales .iconbtn svg{width:16px;height:16px}
+#s-f1-2-datos-iniciales .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-2-datos-iniciales .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f1-2-datos-iniciales .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f1-2-datos-iniciales .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f1-2-datos-iniciales .field{display:flex;flex-direction:column;gap:6px}
+#s-f1-2-datos-iniciales .field label{font-size:12px;color:#000;opacity:.6}
+#s-f1-2-datos-iniciales .field input,#s-f1-2-datos-iniciales .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f1-2-datos-iniciales .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f1-2-datos-iniciales .btn-primary{background:#000;color:#fff}
+#s-f1-2-datos-iniciales .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f1-2-datos-iniciales .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f1-2-datos-iniciales .navitem svg{width:20px;height:20px}
+#s-f1-2-datos-iniciales .navitem.active{font-weight:700}
+#s-f1-2-datos-iniciales .dot{width:8px;height:8px;border-radius:50%;background:#000}
+#s-f1-2-datos-iniciales .dot.off{opacity:.2}
+#s-f1-2-datos-iniciales .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-2-datos-iniciales .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-2-datos-iniciales .name{font-size:14px;font-weight:700}
+#s-f1-2-datos-iniciales .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-3-datos-incompletos{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-3-datos-incompletos *{box-sizing:border-box}
+#s-f1-3-datos-incompletos .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-3-datos-incompletos .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-3-datos-incompletos .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-3-datos-incompletos .iconbtn svg{width:16px;height:16px}
+#s-f1-3-datos-incompletos .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-3-datos-incompletos .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f1-3-datos-incompletos .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f1-3-datos-incompletos .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f1-3-datos-incompletos .field{display:flex;flex-direction:column;gap:6px}
+#s-f1-3-datos-incompletos .field label{font-size:12px;color:#000;opacity:.6}
+#s-f1-3-datos-incompletos .field input,#s-f1-3-datos-incompletos .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f1-3-datos-incompletos .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f1-3-datos-incompletos .btn-primary{background:#000;color:#fff}
+#s-f1-3-datos-incompletos .btn-muted{opacity:.35;pointer-events:none}
+#s-f1-3-datos-incompletos .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f1-3-datos-incompletos .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f1-3-datos-incompletos .navitem svg{width:20px;height:20px}
+#s-f1-3-datos-incompletos .navitem.active{font-weight:700}
+#s-f1-3-datos-incompletos .dot{width:8px;height:8px;border-radius:50%;background:#000}
+#s-f1-3-datos-incompletos .dot.off{opacity:.2}
+#s-f1-3-datos-incompletos .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-3-datos-incompletos .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-3-datos-incompletos .name{font-size:14px;font-weight:700}
+#s-f1-3-datos-incompletos .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-3-datos-incompletos .alert{border:1px dashed #000;border-radius:8px;padding:12px;display:flex;gap:10px;align-items:flex-start;font-size:12.5px}
+#s-f1-3-datos-incompletos .alert svg{width:18px;height:18px;flex-shrink:0}
+#s-f1-3-datos-incompletos .errfield input{border-style:dashed}
+#s-f1-4-dashboard{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-4-dashboard *{box-sizing:border-box}
+#s-f1-4-dashboard .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-4-dashboard .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-4-dashboard .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-4-dashboard .iconbtn svg{width:16px;height:16px}
+#s-f1-4-dashboard .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-4-dashboard .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f1-4-dashboard .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f1-4-dashboard .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f1-4-dashboard .field{display:flex;flex-direction:column;gap:6px}
+#s-f1-4-dashboard .field label{font-size:12px;color:#000;opacity:.6}
+#s-f1-4-dashboard .field input,#s-f1-4-dashboard .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f1-4-dashboard .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f1-4-dashboard .btn-primary{background:#000;color:#fff}
+#s-f1-4-dashboard .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f1-4-dashboard .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f1-4-dashboard .navitem svg{width:20px;height:20px}
+#s-f1-4-dashboard .navitem.active{font-weight:700}
+#s-f1-4-dashboard .dot{width:8px;height:8px;border-radius:50%;background:#000}
+#s-f1-4-dashboard .dot.off{opacity:.2}
+#s-f1-4-dashboard .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-4-dashboard .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-4-dashboard .name{font-size:14px;font-weight:700}
+#s-f1-4-dashboard .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-4-dashboard .progress{height:10px;border:1px solid #000;border-radius:5px;overflow:hidden;background:#fff}
+#s-f1-4-dashboard .progress > div{height:100%;background:#000}
+#s-f1-4-dashboard .row{display:flex;justify-content:space-between;font-size:12px}
+#s-f1-5-registrar-gasto{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-5-registrar-gasto *{box-sizing:border-box}
+#s-f1-5-registrar-gasto .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-5-registrar-gasto .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-5-registrar-gasto .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-5-registrar-gasto .iconbtn svg{width:16px;height:16px}
+#s-f1-5-registrar-gasto .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-5-registrar-gasto .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f1-5-registrar-gasto .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f1-5-registrar-gasto .field{display:flex;flex-direction:column;gap:6px}
+#s-f1-5-registrar-gasto .field label{font-size:12px;color:#000;opacity:.6}
+#s-f1-5-registrar-gasto .field input,#s-f1-5-registrar-gasto .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f1-5-registrar-gasto .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f1-5-registrar-gasto .btn-primary{background:#000;color:#fff}
+#s-f1-5-registrar-gasto .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-5-registrar-gasto .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-5-registrar-gasto .name{font-size:14px;font-weight:700}
+#s-f1-5-registrar-gasto .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-5-registrar-gasto .tabs{display:flex;border:1px solid #000;border-radius:8px;overflow:hidden}
+#s-f1-5-registrar-gasto .tab{flex:1;padding:10px;text-align:center;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px}
+#s-f1-5-registrar-gasto .tab.active{background:#000;color:#fff}
+#s-f1-5-registrar-gasto .tab svg{width:16px;height:16px}
+#s-f1-6-error-gasto{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-6-error-gasto *{box-sizing:border-box}
+#s-f1-6-error-gasto .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-6-error-gasto .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-6-error-gasto .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-6-error-gasto .iconbtn svg{width:16px;height:16px}
+#s-f1-6-error-gasto .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-6-error-gasto .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f1-6-error-gasto .field{display:flex;flex-direction:column;gap:6px}
+#s-f1-6-error-gasto .field label{font-size:12px;color:#000;opacity:.6}
+#s-f1-6-error-gasto .field input,#s-f1-6-error-gasto .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f1-6-error-gasto .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f1-6-error-gasto .btn-primary{background:#000;color:#fff}
+#s-f1-6-error-gasto .btn-muted{opacity:.35;pointer-events:none}
+#s-f1-6-error-gasto .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-6-error-gasto .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-6-error-gasto .name{font-size:14px;font-weight:700}
+#s-f1-6-error-gasto .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-6-error-gasto .alert{border:1px dashed #000;border-radius:8px;padding:12px;display:flex;gap:10px;align-items:flex-start;font-size:12.5px}
+#s-f1-6-error-gasto .alert svg{width:18px;height:18px;flex-shrink:0}
+#s-f1-6-error-gasto .errfield input{border-style:dashed}
+#s-f1-7-gasto-guardado{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f1-7-gasto-guardado *{box-sizing:border-box}
+#s-f1-7-gasto-guardado .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f1-7-gasto-guardado .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f1-7-gasto-guardado .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f1-7-gasto-guardado .iconbtn svg{width:16px;height:16px}
+#s-f1-7-gasto-guardado .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f1-7-gasto-guardado .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+#s-f1-7-gasto-guardado .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f1-7-gasto-guardado .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;width:100%}
+#s-f1-7-gasto-guardado .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff;width:100%}
+#s-f1-7-gasto-guardado .btn-primary{background:#000;color:#fff}
+#s-f1-7-gasto-guardado .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f1-7-gasto-guardado .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f1-7-gasto-guardado .name{font-size:14px;font-weight:700}
+#s-f1-7-gasto-guardado .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f1-7-gasto-guardado .big-icon{width:56px;height:56px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:20px}
+#s-f1-7-gasto-guardado .big-icon svg{width:26px;height:26px}
+#s-f1-7-gasto-guardado .dot{width:8px;height:8px;border-radius:50%;background:#000}
+#s-f1-7-gasto-guardado .dot.off{opacity:.2}
+#s-f2-1-chat-copiloto{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f2-1-chat-copiloto *{box-sizing:border-box}
+#s-f2-1-chat-copiloto .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f2-1-chat-copiloto .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f2-1-chat-copiloto .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f2-1-chat-copiloto .iconbtn svg{width:16px;height:16px}
+#s-f2-1-chat-copiloto .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f2-1-chat-copiloto .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+#s-f2-1-chat-copiloto .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f2-1-chat-copiloto .bubble{max-width:80%;border:1px solid #000;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+#s-f2-1-chat-copiloto .bubble.ia{align-self:flex-start;border-bottom-left-radius:2px}
+#s-f2-1-chat-copiloto .chip{border:1px solid #000;border-radius:16px;padding:8px 14px;font-size:12.5px;text-decoration:none;color:#000;align-self:flex-start;background:#fff}
+#s-f2-1-chat-copiloto .inputrow{flex-shrink:0;border-top:1px solid #000;display:flex;align-items:center;gap:8px;padding:12px 16px}
+#s-f2-1-chat-copiloto .inputrow input{flex:1;border:1px solid #000;border-radius:20px;padding:10px 14px;font-size:14px;font-family:inherit}
+#s-f2-1-chat-copiloto .sendbtn{width:38px;height:38px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+#s-f2-1-chat-copiloto .sendbtn svg{width:16px;height:16px}
+#s-f2-1-chat-copiloto .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f2-1-chat-copiloto .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f2-1-chat-copiloto .navitem svg{width:20px;height:20px}
+#s-f2-1-chat-copiloto .navitem.active{font-weight:700}
+#s-f2-1-chat-copiloto .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f2-1-chat-copiloto .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f2-1-chat-copiloto .name{font-size:14px;font-weight:700}
+#s-f2-1-chat-copiloto .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f2-2-info-insuficiente{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f2-2-info-insuficiente *{box-sizing:border-box}
+#s-f2-2-info-insuficiente .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f2-2-info-insuficiente .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f2-2-info-insuficiente .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f2-2-info-insuficiente .iconbtn svg{width:16px;height:16px}
+#s-f2-2-info-insuficiente .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f2-2-info-insuficiente .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+#s-f2-2-info-insuficiente .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f2-2-info-insuficiente .bubble{max-width:85%;border:1px dashed #000;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+#s-f2-2-info-insuficiente .bubble.ia{align-self:flex-start;border-bottom-left-radius:2px}
+#s-f2-2-info-insuficiente .bubble.user{align-self:flex-end;border-style:solid;border-bottom-right-radius:2px}
+#s-f2-2-info-insuficiente .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f2-2-info-insuficiente .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f2-2-info-insuficiente .btn-primary{background:#000;color:#fff}
+#s-f2-2-info-insuficiente .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f2-2-info-insuficiente .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f2-2-info-insuficiente .name{font-size:14px;font-weight:700}
+#s-f2-2-info-insuficiente .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f2-3-respuesta-recomendacion{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f2-3-respuesta-recomendacion *{box-sizing:border-box}
+#s-f2-3-respuesta-recomendacion .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f2-3-respuesta-recomendacion .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f2-3-respuesta-recomendacion .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f2-3-respuesta-recomendacion .iconbtn svg{width:16px;height:16px}
+#s-f2-3-respuesta-recomendacion .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f2-3-respuesta-recomendacion .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+#s-f2-3-respuesta-recomendacion .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f2-3-respuesta-recomendacion .bubble{max-width:85%;border:1px solid #000;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+#s-f2-3-respuesta-recomendacion .bubble.ia{align-self:flex-start;border-bottom-left-radius:2px}
+#s-f2-3-respuesta-recomendacion .bubble.user{align-self:flex-end;background:#000;color:#fff;border-bottom-right-radius:2px}
+#s-f2-3-respuesta-recomendacion .bubble.user .line{background:#fff;opacity:.5}
+#s-f2-3-respuesta-recomendacion .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f2-3-respuesta-recomendacion .btnrow{display:flex;gap:10px}
+#s-f2-3-respuesta-recomendacion .btn{border:1px solid #000;border-radius:8px;padding:12px;text-align:center;text-decoration:none;color:#000;font-size:13px;font-weight:600;flex:1;background:#fff}
+#s-f2-3-respuesta-recomendacion .btn-primary{background:#000;color:#fff}
+#s-f2-3-respuesta-recomendacion .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f2-3-respuesta-recomendacion .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f2-3-respuesta-recomendacion .name{font-size:14px;font-weight:700}
+#s-f2-3-respuesta-recomendacion .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f2-4-meta-actualizada{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f2-4-meta-actualizada *{box-sizing:border-box}
+#s-f2-4-meta-actualizada .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f2-4-meta-actualizada .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f2-4-meta-actualizada .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f2-4-meta-actualizada .iconbtn svg{width:16px;height:16px}
+#s-f2-4-meta-actualizada .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f2-4-meta-actualizada .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+#s-f2-4-meta-actualizada .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f2-4-meta-actualizada .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px;width:100%}
+#s-f2-4-meta-actualizada .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff;width:100%}
+#s-f2-4-meta-actualizada .btn-primary{background:#000;color:#fff}
+#s-f2-4-meta-actualizada .big-icon{width:56px;height:56px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:20px}
+#s-f2-4-meta-actualizada .big-icon svg{width:26px;height:26px}
+#s-f2-4-meta-actualizada .progress{height:10px;border:1px solid #000;border-radius:5px;overflow:hidden;background:#fff;width:100%}
+#s-f2-4-meta-actualizada .progress > div{height:100%;background:#000}
+#s-f2-4-meta-actualizada .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f2-4-meta-actualizada .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f2-4-meta-actualizada .name{font-size:14px;font-weight:700}
+#s-f2-4-meta-actualizada .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f2-5-progreso-recompensa{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f2-5-progreso-recompensa *{box-sizing:border-box}
+#s-f2-5-progreso-recompensa .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f2-5-progreso-recompensa .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f2-5-progreso-recompensa .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f2-5-progreso-recompensa .iconbtn svg{width:16px;height:16px}
+#s-f2-5-progreso-recompensa .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f2-5-progreso-recompensa .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f2-5-progreso-recompensa .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+#s-f2-5-progreso-recompensa .card.dashed{border-style:dashed}
+#s-f2-5-progreso-recompensa .progress{height:10px;border:1px solid #000;border-radius:5px;overflow:hidden;background:#fff}
+#s-f2-5-progreso-recompensa .progress > div{height:100%;background:#000}
+#s-f2-5-progreso-recompensa .dot{width:8px;height:8px;border-radius:50%;background:#000}
+#s-f2-5-progreso-recompensa .dot.off{opacity:.2}
+#s-f2-5-progreso-recompensa .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f2-5-progreso-recompensa .btn-primary{background:#000;color:#fff}
+#s-f2-5-progreso-recompensa .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f2-5-progreso-recompensa .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f2-5-progreso-recompensa .navitem svg{width:20px;height:20px}
+#s-f2-5-progreso-recompensa .navitem.active{font-weight:700}
+#s-f2-5-progreso-recompensa .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f2-5-progreso-recompensa .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f2-5-progreso-recompensa .name{font-size:14px;font-weight:700}
+#s-f2-5-progreso-recompensa .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f2-5-progreso-recompensa .row{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+#s-f2-5-progreso-recompensa .row svg{width:22px;height:22px}
+#s-f3-1-feed-preguntas{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f3-1-feed-preguntas *{box-sizing:border-box}
+#s-f3-1-feed-preguntas .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f3-1-feed-preguntas .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f3-1-feed-preguntas .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f3-1-feed-preguntas .iconbtn svg{width:16px;height:16px}
+#s-f3-1-feed-preguntas .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f3-1-feed-preguntas .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+#s-f3-1-feed-preguntas .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f3-1-feed-preguntas .searchbar{border:1px solid #000;border-radius:20px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:13px;opacity:.6}
+#s-f3-1-feed-preguntas .searchbar svg{width:16px;height:16px;flex-shrink:0}
+#s-f3-1-feed-preguntas .qcard{border:1px solid #000;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:#000}
+#s-f3-1-feed-preguntas .row{display:flex;justify-content:space-between;font-size:11px;opacity:.55}
+#s-f3-1-feed-preguntas .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f3-1-feed-preguntas .btn-primary{background:#000;color:#fff}
+#s-f3-1-feed-preguntas .navbar{height:66px;flex-shrink:0;border-top:1px solid #000;display:flex}
+#s-f3-1-feed-preguntas .navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:#000;font-size:10px}
+#s-f3-1-feed-preguntas .navitem svg{width:20px;height:20px}
+#s-f3-1-feed-preguntas .navitem.active{font-weight:700}
+#s-f3-1-feed-preguntas .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f3-1-feed-preguntas .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f3-1-feed-preguntas .name{font-size:14px;font-weight:700}
+#s-f3-1-feed-preguntas .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f3-2-detalle-pregunta{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f3-2-detalle-pregunta *{box-sizing:border-box}
+#s-f3-2-detalle-pregunta .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f3-2-detalle-pregunta .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f3-2-detalle-pregunta .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f3-2-detalle-pregunta .iconbtn svg{width:16px;height:16px}
+#s-f3-2-detalle-pregunta .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f3-2-detalle-pregunta .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f3-2-detalle-pregunta .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f3-2-detalle-pregunta .qbox{border:1px solid #000;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px}
+#s-f3-2-detalle-pregunta .answer{border-top:1px solid #000;padding-top:12px;display:flex;flex-direction:column;gap:8px}
+#s-f3-2-detalle-pregunta .usefulbtn{border:1px solid #000;border-radius:16px;padding:5px 12px;font-size:11px;align-self:flex-start;display:flex;align-items:center;gap:5px}
+#s-f3-2-detalle-pregunta .usefulbtn svg{width:13px;height:13px}
+#s-f3-2-detalle-pregunta .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f3-2-detalle-pregunta .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f3-2-detalle-pregunta .name{font-size:14px;font-weight:700}
+#s-f3-2-detalle-pregunta .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f3-3-escribir-pregunta{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f3-3-escribir-pregunta *{box-sizing:border-box}
+#s-f3-3-escribir-pregunta .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f3-3-escribir-pregunta .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f3-3-escribir-pregunta .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f3-3-escribir-pregunta .iconbtn svg{width:16px;height:16px}
+#s-f3-3-escribir-pregunta .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f3-3-escribir-pregunta .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f3-3-escribir-pregunta .field{display:flex;flex-direction:column;gap:6px}
+#s-f3-3-escribir-pregunta .field label{font-size:12px;color:#000;opacity:.6}
+#s-f3-3-escribir-pregunta .field textarea{border:1px solid #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f3-3-escribir-pregunta .hint{font-size:11px;opacity:.5}
+#s-f3-3-escribir-pregunta .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f3-3-escribir-pregunta .btn-primary{background:#000;color:#fff}
+#s-f3-3-escribir-pregunta .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f3-3-escribir-pregunta .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f3-3-escribir-pregunta .name{font-size:14px;font-weight:700}
+#s-f3-3-escribir-pregunta .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f3-4-pregunta-invalida{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f3-4-pregunta-invalida *{box-sizing:border-box}
+#s-f3-4-pregunta-invalida .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f3-4-pregunta-invalida .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f3-4-pregunta-invalida .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f3-4-pregunta-invalida .iconbtn svg{width:16px;height:16px}
+#s-f3-4-pregunta-invalida .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f3-4-pregunta-invalida .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px}
+#s-f3-4-pregunta-invalida .field{display:flex;flex-direction:column;gap:6px}
+#s-f3-4-pregunta-invalida .field label{font-size:12px;color:#000;opacity:.6}
+#s-f3-4-pregunta-invalida .field textarea{border:1px dashed #000;border-radius:6px;padding:11px 12px;font-size:14px;font-family:inherit;background:#fff;color:#000}
+#s-f3-4-pregunta-invalida .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff}
+#s-f3-4-pregunta-invalida .btn-primary{background:#000;color:#fff}
+#s-f3-4-pregunta-invalida .btn-muted{opacity:.35;pointer-events:none}
+#s-f3-4-pregunta-invalida .alert{border:1px dashed #000;border-radius:8px;padding:12px;display:flex;gap:10px;align-items:flex-start;font-size:12.5px}
+#s-f3-4-pregunta-invalida .alert svg{width:18px;height:18px;flex-shrink:0}
+#s-f3-4-pregunta-invalida .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f3-4-pregunta-invalida .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f3-4-pregunta-invalida .name{font-size:14px;font-weight:700}
+#s-f3-4-pregunta-invalida .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-f3-5-pregunta-publicada{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#e9e9e9}
+#s-f3-5-pregunta-publicada *{box-sizing:border-box}
+#s-f3-5-pregunta-publicada .screen{width:375px;height:900px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;overflow:hidden}
+#s-f3-5-pregunta-publicada .topbar{height:56px;flex-shrink:0;border-bottom:1px solid #000;display:flex;align-items:center;gap:12px;padding:0 16px}
+#s-f3-5-pregunta-publicada .iconbtn{width:32px;height:32px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:#000;flex-shrink:0;background:#fff}
+#s-f3-5-pregunta-publicada .iconbtn svg{width:16px;height:16px}
+#s-f3-5-pregunta-publicada .toptitle{font-size:15px;font-weight:600;color:#000}
+#s-f3-5-pregunta-publicada .content{flex:1;min-height:0;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+#s-f3-5-pregunta-publicada .line{height:12px;background:#000;opacity:.14;border-radius:2px}
+#s-f3-5-pregunta-publicada .card{border:1px solid #000;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px;width:100%}
+#s-f3-5-pregunta-publicada .notif{border:1px dashed #000;border-radius:10px;padding:12px;display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left}
+#s-f3-5-pregunta-publicada .notif svg{width:20px;height:20px;flex-shrink:0}
+#s-f3-5-pregunta-publicada .btn{border:1px solid #000;border-radius:8px;padding:14px;text-align:center;text-decoration:none;color:#000;font-size:14px;font-weight:600;display:block;background:#fff;width:100%}
+#s-f3-5-pregunta-publicada .btn-primary{background:#000;color:#fff}
+#s-f3-5-pregunta-publicada .big-icon{width:56px;height:56px;border:1px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:16px}
+#s-f3-5-pregunta-publicada .big-icon svg{width:26px;height:26px}
+#s-f3-5-pregunta-publicada .caption{flex-shrink:0;border-top:2px solid #000;background:#f4f4f4;padding:14px 20px;display:flex;flex-direction:column;gap:4px}
+#s-f3-5-pregunta-publicada .tag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+#s-f3-5-pregunta-publicada .name{font-size:14px;font-weight:700}
+#s-f3-5-pregunta-publicada .note{font-size:11.5px;opacity:.65;line-height:1.4}
+#s-mapa-conexiones{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#fff}
+#s-mapa-conexiones *{box-sizing:border-box}
+#s-mapa-conexiones .board{width:900px;height:640px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;padding:32px;gap:22px}
+#s-mapa-conexiones .h{font-size:18px;font-weight:700}
+#s-mapa-conexiones .sub{font-size:12px;opacity:.55;margin-top:-14px}
+#s-mapa-conexiones .row{display:flex;align-items:center;gap:18px}
+#s-mapa-conexiones .chip{border:1px solid #000;border-radius:10px;padding:14px 18px;font-size:13px;font-weight:600;text-decoration:none;color:#000;background:#fff;min-width:170px;text-align:center}
+#s-mapa-conexiones .chip.hub{background:#000;color:#fff}
+#s-mapa-conexiones .arrow{font-size:22px;flex-shrink:0}
+#s-mapa-conexiones .desc{font-size:12px;opacity:.65;line-height:1.4;flex:1}
+#s-mapa-conexiones .legend{margin-top:auto;font-size:11px;opacity:.5;border-top:1px solid #000;padding-top:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="t-f1-1-carrusel">
+<div class="screen">
+  <div class="topbar">
+    <div class="toptitle">NEXO</div>
+    <div style="flex:1"></div>
+    <a href="#f1-2-datos-iniciales" style="text-decoration:none;color:#000;opacity:.65;font-size:14px">Saltar</a>
+  </div>
+  <div class="content">
+    <div style="height:190px;border:1px dashed #000;border-radius:10px;display:flex;align-items:center;justify-content:center;opacity:.4;font-size:12px">ilustración</div>
+    <div class="line" style="width:70%;height:20px"></div>
+    <div class="line" style="width:92%"></div>
+    <div class="line" style="width:80%"></div>
+    <div style="display:flex;gap:8px;justify-content:center;padding-top:4px">
+      <div class="dot"></div><div class="dot off"></div><div class="dot off"></div>
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f1-2-datos-iniciales" class="btn btn-primary">Siguiente</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Onboarding — Pantalla 1</div>
+    <div class="name">Carrusel de bienvenida (3 pantallas)</div>
+    <div class="note">Representa el carrusel de 3 pantallas informativas. "Saltar" y "Siguiente" llevan al mismo paso siguiente: en el flujograma, ambos caminos (saltar o ver las 3 pantallas) convergen en el ingreso de datos.</div>
+  </div>
+</div>
+</template>
+<template id="t-f1-2-datos-iniciales">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-1-carrusel" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Tu situación inicial</div>
+  </div>
+  <div class="content">
+    <div class="line" style="width:95%"></div>
+    <div class="field">
+      <label for="ingresos">Ingresos mensuales</label>
+      <input id="ingresos" type="text" placeholder="$ ______">
+    </div>
+    <div class="field">
+      <label for="tarjeta">Tarjeta o cuenta (opcional)</label>
+      <input id="tarjeta" type="text" placeholder="No se piden credenciales">
+    </div>
+    <div class="field">
+      <label for="meta">Tu primera meta</label>
+      <input id="meta" type="text" placeholder="Ej. ahorrar para...">
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f1-4-dashboard" class="btn btn-primary">Continuar</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Onboarding — Pantalla 2</div>
+    <div class="name">Ingresar situación inicial</div>
+    <div class="note">Captura la información mínima viable (ingresos, tarjeta, primera meta) sin pedir credenciales bancarias. "Continuar" con datos completos avanza al Dashboard.</div>
+  </div>
+</div>
+</template>
+<template id="t-f1-3-datos-incompletos">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-2-datos-iniciales" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Tu situación inicial</div>
+  </div>
+  <div class="content">
+    <div class="alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>
+      <div>Completa los campos pendientes para continuar.</div>
+    </div>
+    <div class="field">
+      <label for="ingresos">Ingresos mensuales</label>
+      <input id="ingresos" type="text" value="$ 1.200.000">
+    </div>
+    <div class="field errfield">
+      <label for="tarjeta">Tarjeta o cuenta (opcional)</label>
+      <input id="tarjeta" type="text" placeholder="No se piden credenciales">
+    </div>
+    <div class="field errfield">
+      <label for="meta">Tu primera meta — obligatorio</label>
+      <input id="meta" type="text" placeholder="Este campo es obligatorio">
+    </div>
+    <div style="flex:1"></div>
+    <div class="btn btn-primary btn-muted">Continuar</div>
+    <a href="#f1-2-datos-iniciales" style="text-align:center;font-size:13px;text-decoration:underline;opacity:.7">Corregir campos</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Onboarding — Variante 2b</div>
+    <div class="name">Campos pendientes (error)</div>
+    <div class="note">Se muestra cuando el usuario intenta continuar sin completar meta u otro dato clave. Bloquea el avance, señala el campo faltante y conserva lo ya diligenciado.</div>
+  </div>
+</div>
+</template>
+<template id="t-f1-4-dashboard">
+<div class="screen">
+  <div class="topbar">
+    <div class="toptitle">Dashboard</div>
+    <div style="flex:1"></div>
+    <a href="#" class="iconbtn" aria-label="Notificaciones">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M12 3a5 5 0 0 0-5 5v3c0 2-2 3-2 4h14c0-1-2-2-2-4V8a5 5 0 0 0-5-5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+    </a>
+  </div>
+  <div class="content">
+    <div class="card">
+      <div class="row"><span>Ingresos del mes</span><span>[monto]</span></div>
+      <div class="row"><span>Gastado</span><span>[monto]</span></div>
+      <div class="progress"><div style="width:42%"></div></div>
+    </div>
+    <div class="card">
+      <div class="row"><span>Racha actual</span><span>[n] días</span></div>
+      <div style="display:flex;gap:6px">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot off"></div><div class="dot off"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row"><span>Meta: [nombre de la meta]</span><span></span></div>
+      <div class="progress"><div style="width:25%"></div></div>
+    </div>
+    <div class="line" style="width:60%;height:10px;margin-top:4px"></div>
+    <a href="#f1-5-registrar-gasto" class="btn btn-primary">Registrar gasto de hoy</a>
+    <a href="#f2-1-chat-copiloto" class="btn">Consultar al Copiloto IA</a>
+  </div>
+  <div class="navbar">
+    <a href="#f1-4-dashboard" class="navitem active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Inicio
+    </a>
+    <a href="#f2-1-chat-copiloto" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4z"/></svg>
+      Copiloto
+    </a>
+    <a href="#f3-1-feed-preguntas" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14 15c2.8.3 5 2 5 5"/></svg>
+      Comunidad
+    </a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Onboarding — Pantalla 3 (hub)</div>
+    <div class="name">Dashboard</div>
+    <div class="note">Pantalla central: resume ingresos, racha y meta, y es el punto de entrada a los otros dos flujos (Copiloto IA y Comunidad). Aquí llegan tanto el onboarding como el "fin" de los demás flujos.</div>
+  </div>
+</div>
+</template>
+<template id="t-f1-5-registrar-gasto">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-4-dashboard" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Registrar gasto</div>
+  </div>
+  <div class="content">
+    <div class="tabs">
+      <div class="tab active">Escribir</div>
+      <div class="tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
+        Grabar audio
+      </div>
+    </div>
+    <div class="field">
+      <label for="monto">Monto</label>
+      <input id="monto" type="text" placeholder="$ ______">
+    </div>
+    <div class="field">
+      <label for="cat">Categoría</label>
+      <input id="cat" type="text" placeholder="Ej. comida, transporte">
+    </div>
+    <div class="field">
+      <label for="nota">Nota (opcional)</label>
+      <textarea id="nota" rows="2" placeholder="Ej. almuerzo con..."></textarea>
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f1-7-gasto-guardado" class="btn btn-primary">Guardar gasto</a>
+    <a href="#f1-4-dashboard" style="text-align:center;font-size:13px;opacity:.6">Cancelar</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Registro diario — Pantalla 1</div>
+    <div class="name">Registrar gasto del día</div>
+    <div class="note">Registro rápido tipo chat o audio, pensado para completarse en segundos y sostener el hábito diario que alimenta la racha.</div>
+  </div>
+</div>
+</template>
+<template id="t-f1-6-error-gasto">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-5-registrar-gasto" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Registrar gasto</div>
+  </div>
+  <div class="content">
+    <div class="alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>
+      <div>Revisa el monto ingresado. Debe ser un número mayor a cero.</div>
+    </div>
+    <div class="field errfield">
+      <label for="monto">Monto</label>
+      <input id="monto" type="text" value="abc">
+    </div>
+    <div class="field">
+      <label for="cat">Categoría</label>
+      <input id="cat" type="text" value="Comida">
+    </div>
+    <div class="field">
+      <label for="nota">Nota (opcional)</label>
+      <textarea id="nota" rows="2">Almuerzo con...</textarea>
+    </div>
+    <div style="flex:1"></div>
+    <div class="btn btn-primary btn-muted">Guardar gasto</div>
+    <a href="#f1-5-registrar-gasto" style="text-align:center;font-size:13px;text-decoration:underline;opacity:.7">Corregir</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Registro diario — Variante 1b</div>
+    <div class="name">Error de registro</div>
+    <div class="note">Se activa cuando el monto o la categoría no son válidos. El usuario corrige el campo señalado sin perder la nota que ya había escrito.</div>
+  </div>
+</div>
+</template>
+<template id="t-f1-7-gasto-guardado">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-4-dashboard" class="iconbtn" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+    </a>
+    <div class="toptitle">Gasto registrado</div>
+  </div>
+  <div class="content">
+    <div class="big-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M4 12l5 5 11-11"/></svg>
+    </div>
+    <div class="line" style="width:60%;height:18px"></div>
+    <div class="card">
+      <div style="font-size:13px">Racha actual: [n] días</div>
+      <div style="display:flex;gap:6px;justify-content:center">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot off"></div>
+      </div>
+      <div class="line" style="width:80%;margin:0 auto"></div>
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f1-4-dashboard" class="btn btn-primary">Volver al Dashboard</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 1 · Registro diario — Pantalla 3 (fin)</div>
+    <div class="name">Gasto guardado + racha actualizada</div>
+    <div class="note">Confirma el registro y refuerza el hábito mostrando el progreso de la racha (incluye "Mostrar progreso de la racha") antes de volver al Dashboard.</div>
+  </div>
+</div>
+</template>
+<template id="t-f2-1-chat-copiloto">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-4-dashboard" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Copiloto IA</div>
+  </div>
+  <div class="content">
+    <div class="bubble ia">
+      <div class="line" style="width:90%"></div>
+      <div class="line" style="width:70%"></div>
+    </div>
+    <a href="#" class="chip">¿Cuánto puedo gastar esta semana?</a>
+    <a href="#" class="chip">¿Voy bien con mi meta?</a>
+    <div style="flex:1"></div>
+    <a href="#f2-2-info-insuficiente" style="font-size:11.5px;text-decoration:underline;opacity:.55;align-self:flex-start">Ejemplo: información insuficiente →</a>
+  </div>
+  <div class="inputrow">
+    <input type="text" placeholder="Escribe tu pregunta sobre tu dinero...">
+    <a href="#f2-3-respuesta-recomendacion" class="sendbtn" aria-label="Enviar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <div class="navbar">
+    <a href="#f1-4-dashboard" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Inicio
+    </a>
+    <a href="#f2-1-chat-copiloto" class="navitem active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4z"/></svg>
+      Copiloto
+    </a>
+    <a href="#f3-1-feed-preguntas" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14 15c2.8.3 5 2 5 5"/></svg>
+      Comunidad
+    </a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 2 · Copiloto IA — Pantalla 1</div>
+    <div class="name">Chat con el Copiloto IA</div>
+    <div class="note">Une "Consultar al Copiloto IA" y "Escribir pregunta sobre su dinero" en una sola pantalla de chat, el patrón estándar para este tipo de interacción conversacional.</div>
+  </div>
+</div>
+</template>
+<template id="t-f2-2-info-insuficiente">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f2-1-chat-copiloto" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Copiloto IA</div>
+  </div>
+  <div class="content">
+    <div class="bubble user">
+      <div class="line" style="width:70%"></div>
+    </div>
+    <div class="bubble ia">
+      <div class="line" style="width:90%"></div>
+      <div class="line" style="width:60%"></div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:600">Me faltan datos para responder bien</div>
+      <div class="line" style="width:95%"></div>
+      <div class="line" style="width:80%"></div>
+      <a href="#f1-5-registrar-gasto" class="btn btn-primary">Registrar un gasto</a>
+      <a href="#f1-2-datos-iniciales" class="btn">Completar mi situación inicial</a>
+    </div>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 2 · Copiloto IA — Variante 1b</div>
+    <div class="name">Información insuficiente</div>
+    <div class="note">Cuando la IA no tiene datos suficientes (pocos gastos o meta sin definir), pide completar el registro antes de responder — conecta de vuelta con el Flujo 1.</div>
+  </div>
+</div>
+</template>
+<template id="t-f2-3-respuesta-recomendacion">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f2-1-chat-copiloto" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Copiloto IA</div>
+  </div>
+  <div class="content">
+    <div class="bubble user">
+      <div class="line" style="width:65%"></div>
+    </div>
+    <div class="bubble ia">
+      <div class="line" style="width:95%"></div>
+      <div class="line" style="width:88%"></div>
+      <div class="line" style="width:60%"></div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:600">Acción sugerida</div>
+      <div class="line" style="width:90%"></div>
+      <div class="line" style="width:75%"></div>
+      <div class="btnrow">
+        <a href="#f2-4-meta-actualizada" class="btn">Mantener meta actual</a>
+        <a href="#f2-4-meta-actualizada" class="btn btn-primary">Ajustar meta</a>
+      </div>
+    </div>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 2 · Copiloto IA — Pantalla 2</div>
+    <div class="name">Respuesta + recomendación</div>
+    <div class="note">Une "Respuesta financiera personalizada" y "Sugerir acción o ajuste a la meta" en la misma burbuja de respuesta, siguiendo el patrón conversacional del chat.</div>
+  </div>
+</div>
+</template>
+<template id="t-f2-4-meta-actualizada">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f2-3-respuesta-recomendacion" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Tu meta</div>
+  </div>
+  <div class="content">
+    <div class="big-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M4 12l5 5 11-11"/></svg>
+    </div>
+    <div class="line" style="width:65%;height:18px"></div>
+    <div class="card">
+      <div style="font-size:13px;text-align:left">Meta: [nombre de la meta]</div>
+      <div style="font-size:13px;text-align:left">Nuevo objetivo: [monto]</div>
+      <div class="progress"><div style="width:30%"></div></div>
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f2-5-progreso-recompensa" class="btn btn-primary">Ver progreso</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 2 · Copiloto IA — Pantalla 3</div>
+    <div class="name">Meta ajustada o mantenida</div>
+    <div class="note">Una sola pantalla resume ambas ramas de la decisión "¿Usuario acepta la recomendación?": el layout es igual, solo cambia el valor mostrado en la tarjeta.</div>
+  </div>
+</div>
+</template>
+<template id="t-f2-5-progreso-recompensa">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f2-4-meta-actualizada" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Tu progreso</div>
+  </div>
+  <div class="content">
+    <div class="card">
+      <div class="row"><span>Meta: [nombre]</span><span>30%</span></div>
+      <div class="progress"><div style="width:30%"></div></div>
+    </div>
+    <div class="card">
+      <div class="row"><span>Racha</span><span>[n] días</span></div>
+      <div style="display:flex;gap:6px">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot off"></div>
+      </div>
+    </div>
+    <div class="card dashed">
+      <div class="row">
+        <span style="font-weight:600">Recompensa desbloqueada</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M12 3l2.6 5.7 6.2.6-4.7 4.1 1.4 6.1L12 16.9 6.5 19.5l1.4-6.1L3.2 9.3l6.2-.6z"/></svg>
+      </div>
+      <div style="font-size:12px">[días] de IA Pro gratis por mantener tu racha</div>
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f1-4-dashboard" class="btn btn-primary">Seguir usando NEXO</a>
+  </div>
+  <div class="navbar">
+    <a href="#f1-4-dashboard" class="navitem active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Inicio
+    </a>
+    <a href="#f2-1-chat-copiloto" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4z"/></svg>
+      Copiloto
+    </a>
+    <a href="#f3-1-feed-preguntas" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14 15c2.8.3 5 2 5 5"/></svg>
+      Comunidad
+    </a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 2 · Copiloto IA — Pantalla 4 (fin)</div>
+    <div class="name">Progreso + recompensa de racha</div>
+    <div class="note">Si no se desbloquea recompensa, la tarjeta punteada simplemente no aparece y el botón lleva directo al Dashboard: mismo layout, un bloque menos.</div>
+  </div>
+</div>
+</template>
+<template id="t-f3-1-feed-preguntas">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f1-4-dashboard" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Comunidad</div>
+  </div>
+  <div class="content">
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><circle cx="10" cy="10" r="6"/><path d="M20 20l-5-5"/></svg>
+      Buscar o filtrar preguntas
+    </div>
+    <a href="#f3-2-detalle-pregunta" class="qcard">
+      <div class="line" style="width:90%"></div>
+      <div class="line" style="width:60%"></div>
+      <div class="row"><span>[usuario]</span><span>[n] respuestas</span></div>
+    </a>
+    <a href="#f3-2-detalle-pregunta" class="qcard">
+      <div class="line" style="width:85%"></div>
+      <div class="line" style="width:50%"></div>
+      <div class="row"><span>[usuario]</span><span>[n] respuestas</span></div>
+    </a>
+    <a href="#f3-2-detalle-pregunta" class="qcard">
+      <div class="line" style="width:75%"></div>
+      <div class="line" style="width:55%"></div>
+      <div class="row"><span>[usuario]</span><span>[n] respuestas</span></div>
+    </a>
+    <div style="flex:1"></div>
+    <a href="#f3-3-escribir-pregunta" class="btn btn-primary">Hacer una pregunta nueva</a>
+  </div>
+  <div class="navbar">
+    <a href="#f1-4-dashboard" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Inicio
+    </a>
+    <a href="#f2-1-chat-copiloto" class="navitem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4z"/></svg>
+      Copiloto
+    </a>
+    <a href="#f3-1-feed-preguntas" class="navitem active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14 15c2.8.3 5 2 5 5"/></svg>
+      Comunidad
+    </a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 3 · Comunidad — Pantalla 1</div>
+    <div class="name">Foro: feed de preguntas</div>
+    <div class="note">Incluye la barra de búsqueda/filtrado dentro del feed principal en vez de una pantalla aparte, siguiendo el patrón típico de foros de preguntas y respuestas.</div>
+  </div>
+</div>
+</template>
+<template id="t-f3-2-detalle-pregunta">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f3-1-feed-preguntas" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Pregunta</div>
+  </div>
+  <div class="content">
+    <div class="qbox">
+      <div class="line" style="width:90%;height:16px"></div>
+      <div class="line" style="width:95%"></div>
+      <div class="line" style="width:70%"></div>
+      <div style="font-size:11px;opacity:.5">[usuario] · hace [n] días</div>
+    </div>
+    <div style="font-size:12px;opacity:.6;font-weight:600">Respuestas ([n])</div>
+    <div class="answer">
+      <div class="line" style="width:92%"></div>
+      <div class="line" style="width:60%"></div>
+      <button class="usefulbtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M4 12l5 5 11-11"/></svg>
+        Marcar como útil
+      </button>
+    </div>
+    <div class="answer">
+      <div class="line" style="width:85%"></div>
+      <div class="line" style="width:75%"></div>
+      <button class="usefulbtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M4 12l5 5 11-11"/></svg>
+        Marcar como útil
+      </button>
+    </div>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 3 · Comunidad — Pantalla 2</div>
+    <div class="name">Detalle: leer respuestas y marcar como útil</div>
+    <div class="note">Cubre "Leer respuestas" y "Ver respuestas y marcar como útil": ambos pasos del flujograma usan la misma vista de detalle.</div>
+  </div>
+</div>
+</template>
+<template id="t-f3-3-escribir-pregunta">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f3-1-feed-preguntas" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Nueva pregunta</div>
+  </div>
+  <div class="content">
+    <div class="field">
+      <label for="preg">Tu pregunta</label>
+      <textarea id="preg" rows="5" placeholder="Escribe tu pregunta sobre tu dinero..."></textarea>
+    </div>
+    <div class="hint">Recuerda seguir las normas de la comunidad.</div>
+    <div style="flex:1"></div>
+    <a href="#f3-5-pregunta-publicada" class="btn btn-primary">Publicar</a>
+    <a href="#f3-4-pregunta-invalida" style="text-align:center;font-size:11.5px;text-decoration:underline;opacity:.55">Ejemplo: pregunta no válida →</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 3 · Comunidad — Pantalla 3</div>
+    <div class="name">Escribir pregunta nueva</div>
+    <div class="note">Formulario simple para mantener baja la fricción de participar en el foro.</div>
+  </div>
+</div>
+</template>
+<template id="t-f3-4-pregunta-invalida">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f3-3-escribir-pregunta" class="iconbtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div class="toptitle">Nueva pregunta</div>
+  </div>
+  <div class="content">
+    <div class="alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>
+      <div>Tu pregunta no cumple las normas de la comunidad.</div>
+    </div>
+    <div class="field">
+      <label for="preg">Tu pregunta</label>
+      <textarea id="preg" rows="5">[contenido que no cumple las normas]</textarea>
+    </div>
+    <div style="flex:1"></div>
+    <div class="btn btn-primary btn-muted">Publicar</div>
+    <a href="#f3-3-escribir-pregunta" style="text-align:center;font-size:13px;text-decoration:underline;opacity:.7">Corregir pregunta</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 3 · Comunidad — Variante 3b</div>
+    <div class="name">Pregunta no válida</div>
+    <div class="note">Bloquea la publicación cuando el contenido no cumple las normas de la comunidad, sin borrar lo que el usuario ya escribió.</div>
+  </div>
+</div>
+</template>
+<template id="t-f3-5-pregunta-publicada">
+<div class="screen">
+  <div class="topbar">
+    <a href="#f3-1-feed-preguntas" class="iconbtn" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+    </a>
+    <div class="toptitle">Pregunta publicada</div>
+  </div>
+  <div class="content">
+    <div class="big-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M4 12l5 5 11-11"/></svg>
+    </div>
+    <div class="card">
+      <div class="line" style="width:85%"></div>
+      <div class="line" style="width:60%"></div>
+      <div style="font-size:11px;opacity:.5;text-align:left">Otros usuarios de la comunidad están respondiendo</div>
+    </div>
+    <div class="notif">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><path d="M12 3a5 5 0 0 0-5 5v3c0 2-2 3-2 4h14c0-1-2-2-2-4V8a5 5 0 0 0-5-5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+      <div style="font-size:12.5px">Nueva respuesta a tu pregunta</div>
+    </div>
+    <div style="flex:1"></div>
+    <a href="#f3-2-detalle-pregunta" class="btn btn-primary">Ver respuestas</a>
+  </div>
+  <div class="caption">
+    <div class="tag">Flujo 3 · Comunidad — Pantalla 4 (fin)</div>
+    <div class="name">Pregunta publicada + notificación de respuesta</div>
+    <div class="note">Une "Publicar pregunta", "Otros usuarios responden" y "Recibir notificación de respuesta" en un solo estado de confirmación con aviso simulado.</div>
+  </div>
+</div>
+</template>
+<template id="t-mapa-conexiones">
+<div class="board">
+  <div class="h">Mapa de conexiones entre los tres flujos</div>
+  <div class="sub">NEXO — copiloto financiero</div>
+
+  <div class="row">
+    <a href="#f1-1-carrusel" class="chip">Flujo 1<br>Onboarding y registro</a>
+    <div class="arrow">→</div>
+    <a href="#f1-4-dashboard" class="chip hub">Dashboard</a>
+    <div class="desc">El onboarding termina en el Dashboard. Desde el Dashboard el usuario también entra a "Registrar gasto del día" cuando quiere, cerrando su propio ciclo diario.</div>
+  </div>
+
+  <div class="row">
+    <a href="#f1-4-dashboard" class="chip hub">Dashboard</a>
+    <div class="arrow">↔</div>
+    <a href="#f2-1-chat-copiloto" class="chip">Flujo 2<br>Copiloto IA</a>
+    <div class="desc">Desde el Dashboard se consulta al Copiloto. Si a la IA le faltan datos, manda al usuario de vuelta a "Registrar gasto" (Flujo 1) antes de responder.</div>
+  </div>
+
+  <div class="row">
+    <a href="#f1-4-dashboard" class="chip hub">Dashboard</a>
+    <div class="arrow">↔</div>
+    <a href="#f3-1-feed-preguntas" class="chip">Flujo 3<br>Comunidad</a>
+    <div class="desc">Desde el Dashboard se entra al foro. Al publicar una pregunta o terminar de leer respuestas, el usuario puede volver al Dashboard.</div>
+  </div>
+
+  <div class="legend">El Dashboard es el nodo central: los tres flujos parten y regresan a él. Toca cualquier casilla para abrir esa pantalla.</div>
+</div>
+</template>
+<script>
+(function () {
+  var SCREENS = ["f1-1-carrusel","f1-2-datos-iniciales","f1-3-datos-incompletos","f1-4-dashboard","f1-5-registrar-gasto","f1-6-error-gasto","f1-7-gasto-guardado","f2-1-chat-copiloto","f2-2-info-insuficiente","f2-3-respuesta-recomendacion","f2-4-meta-actualizada","f2-5-progreso-recompensa","f3-1-feed-preguntas","f3-2-detalle-pregunta","f3-3-escribir-pregunta","f3-4-pregunta-invalida","f3-5-pregunta-publicada","mapa-conexiones"];
+  var app = document.getElementById("app");
+  var current = null;
+  function show() {
+    var id = location.hash.replace(/^#/, "");
+    if (SCREENS.indexOf(id) === -1) id = current || SCREENS[0];
+    if (id === current) return;
+    var t = document.getElementById("t-" + id);
+    app.innerHTML = '<div class="scr" id="s-' + id + '"></div>';
+    app.firstChild.appendChild(t.content.cloneNode(true));
+    current = id;
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a");
+    if (a && a.getAttribute("href") === "#") e.preventDefault();
+  });
+  window.addEventListener("hashchange", show);
+  show();
+})();
+</script>
+</body>
+</html>

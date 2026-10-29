@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F6F2EA" />
+    <meta name="description" content="NEXO: tu dinero, pero con alguien de tu lado." />
+    <title>NEXO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root{--paper: #F6F2EA;--sf: #FFFFFF;--ink: #14142B;--ink2: #5B5B73;--ink3: #686880;--ink-hover: #2A2A4A;--line: #E4DFD3;--sand: #ECE7DB;--outer: #E6E0D2;--lime: #C9F25C;--lime-d: #B8E23F;--lime-50: #F1FAD6;--ai: #3A4BFF;--ai-50: #E8EBFF;--ok: #0B7A55;--ok-50: #DDF1E8;--wa: #8A5600;--wa-50: #FBEBCB;--er: #C73B3F;--er-50: #FBE3E3;--cat-food: #C2561C;--cat-transport: #1F6FC2;--cat-fun: #7A3FC4;--cat-shop: #C22A66;--cat-edu: #12795F;--cat-other: #5B5B73;--bg: var(--paper);--pri: var(--ink);--pri-d: var(--ink);--pri-50: var(--sand);--pri-100: var(--line);--sec: var(--lime);--sec-50: var(--lime-50);--in: var(--ai);--in-50: var(--ai-50);--r-s: 8px;--r-m: 12px;--r-l: 16px;--r-card: 20px;--r-btn: 16px;--disp: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;--body: "DM Sans", "Segoe UI", system-ui, sans-serif;font-family:var(--body);color:var(--ink);background:var(--paper)}:root[data-palette=coral]{--paper: #FFF5EE;--ink: #2A1038;--ink2: #66506F;--ink3: #6E5978;--ink-hover: #3E1F52;--line: #F0DDD2;--sand: #F8E6DB;--outer: #F1DDD0;--lime: #FF8F70;--lime-d: #F27A58;--lime-50: #FFE3D9;--ai: #6C4BFF;--ai-50: #ECE6FF}:root[data-palette=mar]{--paper: #EEF6F5;--ink: #0D2B33;--ink2: #4D6870;--ink3: #546F77;--ink-hover: #1C434E;--line: #D5E4E2;--sand: #E0EEEC;--outer: #D9E6E4;--lime: #7BE3C3;--lime-d: #5BD3AF;--lime-50: #D9F7EE;--ai: #2F5BFF;--ai-50: #E4EBFF}:root[data-palette=sol]{--paper: #FFFAEB;--ink: #1A1814;--ink2: #5E5846;--ink3: #655F4C;--ink-hover: #34302A;--line: #EDE4C8;--sand: #F6EDCF;--outer: #EBE2C2;--lime: #FFD23F;--lime-d: #F2C200;--lime-50: #FFF1B8;--ai: #2748FF;--ai-50: #E6EAFF}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;min-height:100vh;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--ai);outline-offset:2px}button:disabled{cursor:not-allowed;opacity:.55}a{color:inherit}.app-shell{max-width:480px;margin:0 auto;min-height:100vh;background:var(--paper);position:relative}@media(min-width:520px){body{background:var(--outer)}.app-shell{box-shadow:0 0 0 1px #d8d1bf}}.main{padding:14px 16px calc(112px + env(safe-area-inset-bottom))}.main.plain{padding-bottom:32px}.stack{display:grid;gap:16px}.row{display:flex;align-items:center;gap:12px}.spacer{flex:1}.mobile-top{display:flex;align-items:center;gap:8px;margin-bottom:18px;min-height:44px}.brand-word{font:800 23px/1 var(--disp);letter-spacing:-.04em}.icon-btn{position:relative;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--sf);color:var(--ink);display:grid;place-items:center}.icon-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}.dot-badge{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 4px;border-radius:99px;background:var(--er);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center}.pro-badge{background:var(--ink);color:var(--lime);font-size:11px;font-weight:800;padding:3px 7px;border-radius:6px;letter-spacing:.06em}.streak-chip{display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 12px;border:0;border-radius:99px;background:var(--lime);color:var(--ink);font-weight:800;font-size:14px}.screen-top{display:flex;align-items:center;gap:12px;margin-bottom:18px;min-height:44px}.back-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--sf);color:var(--ink);display:grid;place-items:center;flex:none}.screen-title{font-size:22px;margin:0}.mark{--s: 42px;width:var(--s);height:var(--s);border-radius:50%;background:var(--ai);display:grid;place-items:center;flex:none}.mark svg{width:62%;height:62%}.mark.large{--s: 96px}.mark.small{--s: 28px}.eyebrow{color:var(--ink2);font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:var(--disp);letter-spacing:-.025em}h1{font-size:30px;line-height:1.08;margin-bottom:12px}h2{font-size:20px;margin-bottom:8px}h3{font-size:17px;margin-bottom:6px}.muted{color:var(--ink2)}.small{font-size:13px}.money{--fs: 44px;font-family:var(--disp);font-weight:800;line-height:1.05;letter-spacing:-.04em;font-variant-numeric:tabular-nums lining-nums;display:block;white-space:nowrap;font-size:calc(min(var(--fs),12vw) * var(--k, 1))}.money.xl{--fs: 52px}.money.md{--fs: 32px}.num{font-family:var(--disp);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap;flex:none}.row.wrap{flex-wrap:wrap;row-gap:4px}.list-row>div:nth-child(2),.row>div[style*=min-width]{min-width:0}.list-row>div:nth-child(2) b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.card{background:var(--sf);border:1px solid var(--line);border-radius:var(--r-card);padding:18px}.card-lime{background:var(--lime);border-color:transparent}.card.tap{width:100%;text-align:left;color:inherit}.insight{background:var(--sf);border:1px solid var(--line);border-radius:var(--r-card);padding:18px 20px}.insight-title{display:flex;align-items:center;gap:9px;color:var(--ai);font-weight:700;font-size:14px;margin-bottom:10px}.insight p{font-size:17px;line-height:1.4;margin-bottom:14px}.hero-card{background:var(--ink);color:#fff;border-radius:var(--r-card);padding:24px 22px}.hero-label{font-size:14px;color:#ffffffc7;margin-bottom:6px}.hero-bar{height:8px;border-radius:99px;background:#ffffff2e;overflow:hidden;margin:18px 0 14px}.hero-bar span{display:block;height:100%;background:var(--lime);border-radius:inherit;transition:width .3s ease}.hero-bar.over span{background:#ff8a8e}.hero-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;font-size:14px;color:#ffffffc7}.hero-meta b{display:block;white-space:nowrap;color:#fff;font:700 18px var(--disp);font-variant-numeric:tabular-nums;margin-top:2px}.btn{min-height:52px;border:0;border-radius:var(--r-btn);padding:0 20px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;transition:transform .12s ease,background .2s ease}.btn:active{transform:scale(.98)}.btn.primary{color:#fff;background:var(--ink)}.btn.primary:hover{background:var(--ink-hover)}.btn.on-dark,.btn.secondary{background:var(--lime);color:var(--ink)}.btn.secondary:hover{background:var(--lime-d)}.btn.tertiary{background:var(--sf);color:var(--ink);border:1px solid var(--line)}.btn.ghost{background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:4px}.btn.danger{background:var(--er-50);color:var(--er)}.btn.full{width:100%}.btn.small-btn{min-height:42px;padding:0 14px;font-size:14px}.field{display:grid;gap:8px}.field label{font-size:14px;font-weight:700}.field-error{font-size:13px;color:var(--er);font-weight:600}.input,.textarea{width:100%;border:1.5px solid var(--line);background:var(--sf);color:var(--ink);border-radius:var(--r-btn);padding:14px 16px}.input{min-height:54px}.input:focus,.textarea:focus{border-color:var(--ink)}.input[aria-invalid=true],.textarea[aria-invalid=true]{border-color:var(--er);background:var(--er-50)}.textarea{min-height:120px;resize:vertical}.amount-wrap{display:flex;align-items:baseline;gap:8px;border-bottom:2px solid var(--ink);padding-bottom:6px}.amount-wrap span{font:800 32px var(--disp);color:var(--ink2)}.amount-input{--k: 1;width:100%;font-size:calc(min(44px,12vw) * var(--k))!important;border:0;background:transparent;font:800 44px/1.1 var(--disp);letter-spacing:-.03em;color:var(--ink);padding:0;min-width:0}.amount-input:focus-visible{outline:none}.amount-wrap:focus-within{border-color:var(--ai)}.amount-wrap.err{border-color:var(--er)}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips.scroll{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;margin:0 -16px;padding-left:16px;padding-right:16px;scrollbar-width:none}.chips.scroll::-webkit-scrollbar{display:none}.chip{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:99px;background:var(--sf);border:1.5px solid var(--line);font-weight:600;font-size:14px;color:var(--ink);white-space:nowrap;flex:none}.chip.on{background:var(--lime);border-color:var(--ink)}.tabs{display:grid;grid-template-columns:1fr 1fr;padding:4px;background:var(--sand);border-radius:14px;gap:4px}.tab{border:0;background:transparent;height:42px;border-radius:10px;font-weight:700;color:var(--ink2);display:inline-flex;align-items:center;justify-content:center;gap:8px}.tab.on{background:var(--sf);color:var(--ink)}.alert{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:var(--r-l);font-size:14px;font-weight:600}.alert.warn{background:var(--wa-50);color:var(--wa)}.alert.err{background:var(--er-50);color:var(--er)}.alert.ok{background:var(--ok-50);color:var(--ok)}.progress{height:6px;border-radius:99px;background:var(--line);overflow:hidden;flex:1}.progress>span{display:block;height:100%;background:var(--ink);border-radius:inherit;transition:width .2s ease}.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}.bar span{display:block;height:100%;border-radius:inherit;background:var(--ink);transition:width .3s ease}.bar.lime span{background:var(--lime);box-shadow:inset 0 0 0 1.5px var(--ink)}.list{display:grid;gap:0}.list-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.list-row:last-child{border-bottom:0}.group-title{font-size:13px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.04em;margin:4px 0 -4px}.icon-tile{width:44px;height:44px;flex:none;border-radius:13px;background:var(--sand);color:var(--ink);display:grid;place-items:center}.icon-tile.lime{background:var(--lime)}.icon-tile.sm{width:36px;height:36px;border-radius:11px}.icon-tile[data-cat]{background:color-mix(in srgb,var(--c) 14%,#fff);color:var(--c)}.icon-tile[data-cat=Comida]{--c: var(--cat-food)}.icon-tile[data-cat=Transporte]{--c: var(--cat-transport)}.icon-tile[data-cat=Salidas]{--c: var(--cat-fun)}.icon-tile[data-cat=Compras]{--c: var(--cat-shop)}.icon-tile[data-cat=Educación]{--c: var(--cat-edu)}.icon-tile[data-cat=Otro]{--c: var(--cat-other)}.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;background:var(--lime);color:var(--ink);font-size:12px;font-weight:700}.pill.dark{background:var(--ink);color:#fff}.pill.soft{background:var(--sand)}.empty{text-align:center;padding:30px 20px;border:1.5px dashed var(--line);border-radius:var(--r-card);color:var(--ink2)}.success-mark{width:72px;height:72px;border-radius:50%;background:var(--lime);display:grid;place-items:center;margin:8px auto 0}.streak-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px;text-align:center}.streak-day{display:grid;gap:6px;justify-items:center;font-size:12px;font-weight:700}.streak-dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center}.streak-day.on .streak-dot{background:var(--ink);color:var(--lime)}.streak-day.today .streak-dot{border-style:dashed}.reward{display:flex;gap:14px;align-items:flex-start}.reward.locked{opacity:.72}.onb{min-height:100vh;padding:14px 20px 28px;display:flex;flex-direction:column}.onb-top{display:flex;align-items:center;gap:14px;min-height:44px}.onb-body{flex:1;display:flex;flex-direction:column;gap:16px;padding-top:12px}.illus{width:100%;aspect-ratio:16 / 10;border-radius:var(--r-card);background:var(--sand);display:grid;place-items:center;overflow:hidden;margin-top:12px}.illus svg{width:100%;height:100%}.dots{display:flex;gap:8px;justify-content:center;margin:4px 0 8px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--ink);width:24px;border-radius:99px}.welcome-title{font-size:34px}.chat{display:grid;gap:12px}.bubble{max-width:86%;padding:12px 14px;border-radius:18px;line-height:1.45;font-size:16px}.bubble.you{justify-self:end;background:var(--ink);color:#fff;border-bottom-right-radius:6px}.bubble.nexo{justify-self:start;background:var(--sf);border:1px solid var(--line);border-bottom-left-radius:6px;max-width:94%}.bubble-hd{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ai);margin-bottom:6px}.bubble-src{font-size:12px;color:var(--ink2);margin-top:8px}.typing{display:inline-flex;gap:5px;padding:4px 2px}.typing i{width:7px;height:7px;border-radius:50%;background:var(--ink2);animation:blink 1s infinite ease-in-out}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes blink{0%,80%,to{opacity:.25}40%{opacity:1}}.composer{position:sticky;bottom:calc(86px + env(safe-area-inset-bottom));display:flex;gap:8px;padding:10px 0 0;background:var(--paper)}.composer .input{min-height:48px;border-radius:99px}.send-btn{width:48px;height:48px;flex:none;border-radius:50%;border:0;background:var(--ink);color:var(--lime);display:grid;place-items:center}.mic-btn{width:96px;height:96px;border-radius:50%;border:0;background:var(--ink);color:var(--lime);display:grid;place-items:center;margin:8px auto}.mic-btn.live{background:var(--er);color:#fff}.search{position:relative}.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--ink2)}.search .input{padding-left:44px}.post-meta{display:flex;align-items:center;gap:8px;color:var(--ink2);font-size:13px;flex-wrap:wrap}.avatar{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--lime);color:var(--ink);font-weight:800;font-size:13px;flex:none}.helpful{border:1.5px solid var(--line);background:var(--sf);color:var(--ink);height:36px;padding:0 12px;border-radius:99px;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px}.helpful.on{background:var(--lime);border-color:var(--ink)}.answer{padding:14px 0;border-bottom:1px solid var(--line);display:grid;gap:8px}.answer:last-child{border-bottom:0}.toast-zone{position:fixed;left:0;right:0;bottom:calc(96px + env(safe-area-inset-bottom));display:flex;justify-content:center;pointer-events:none;z-index:30;padding:0 16px}.toast{background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-weight:600;font-size:14px;max-width:420px}.mobile-nav{position:fixed;left:50%;transform:translate(-50%);width:min(100%,480px);bottom:0;z-index:10;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}.mobile-nav button{border:0;background:transparent;color:var(--ink2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:700;padding:2px 0;min-height:52px}.mobile-nav .nav-ico{width:52px;height:30px;border-radius:99px;display:grid;place-items:center}.mobile-nav button.active{color:var(--ink)}.mobile-nav button.active .nav-ico{background:var(--lime)}.mobile-nav .nav-mark{display:block;margin-top:-18px;border-radius:50%;box-shadow:0 0 0 4px var(--paper)}.mobile-nav .nav-mark .mark{--s: 46px}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}.pal-opt{display:flex;align-items:center;gap:12px;padding:12px;border:1.5px solid var(--line);border-radius:16px;background:var(--paper);color:var(--ink);text-align:left;width:100%}.pal-opt[aria-pressed=true]{border-color:var(--ink)}.pal-sw{display:flex}.pal-sw i{width:22px;height:22px;border-radius:50%;border:2px solid #fff;margin-left:-6px;box-shadow:0 0 0 1px #0000001f}.pal-sw i:first-child{margin-left:0}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+(function () {
+"use strict";
+
+/* ---------- Íconos (Lucide, solo los usados) ---------- */
+const ICONS = {yp:["Coffee",[["path",{d:"M10 2v2",key:"7u0qdc"}],["path",{d:"M14 2v2",key:"6buw04"}],["path",{d:"M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1",key:"pwadti"}],["path",{d:"M6 2v2",key:"colzsn"}]]],mp:["Bus",[["path",{d:"M8 6v6",key:"18i7km"}],["path",{d:"M15 6v6",key:"1sg6z9"}],["path",{d:"M2 12h19.6",key:"de5uta"}],["path",{d:"M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3",key:"1wwztk"}],["circle",{cx:"7",cy:"18",r:"2",key:"19iecd"}],["path",{d:"M9 18h5",key:"lrx6i"}],["circle",{cx:"16",cy:"18",r:"2",key:"1v4tcr"}]]],Ec:["PartyPopper",[["path",{d:"M5.8 11.3 2 22l10.7-3.79",key:"gwxi1d"}],["path",{d:"M4 3h.01",key:"1vcuye"}],["path",{d:"M22 8h.01",key:"1mrtc2"}],["path",{d:"M15 2h.01",key:"1cjtqr"}],["path",{d:"M22 20h.01",key:"1mrys2"}],["path",{d:"m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10",key:"hbicv8"}],["path",{d:"m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17",key:"1i94pl"}],["path",{d:"m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7",key:"1cofks"}],["path",{d:"M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z",key:"4kbmks"}]]],Ep:["ShoppingBag",[["path",{d:"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z",key:"hou9p0"}],["path",{d:"M3 6h18",key:"d0wm0j"}],["path",{d:"M16 10a4 4 0 0 1-8 0",key:"1ltviw"}]]],pp:["BookOpen",[["path",{d:"M12 7v14",key:"1akyts"}],["path",{d:"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",key:"ruj8y"}]]],so:["Wallet",[["path",{d:"M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1",key:"18etb6"}],["path",{d:"M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4",key:"xoc0q4"}]]],fp:["Bike",[["circle",{cx:"18.5",cy:"17.5",r:"3.5",key:"15x4ox"}],["circle",{cx:"5.5",cy:"17.5",r:"3.5",key:"1noe27"}],["circle",{cx:"15",cy:"5",r:"1",key:"19l28e"}],["path",{d:"M12 17.5V14l-3-3 4-3 2 3h2",key:"1npguv"}]]],wp:["Plane",[["path",{d:"M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z",key:"1v9wt8"}]]],zp:["Smartphone",[["rect",{width:"14",height:"20",x:"5",y:"2",rx:"2",ry:"2",key:"1yt0o3"}],["path",{d:"M12 18h.01",key:"mhygvu"}]]],hp:["Car",[["path",{d:"M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2",key:"5owen"}],["circle",{cx:"7",cy:"17",r:"2",key:"u2ysq9"}],["path",{d:"M9 17h6",key:"r8uit2"}],["circle",{cx:"17",cy:"17",r:"2",key:"axvx0g"}]]],gp:["GraduationCap",[["path",{d:"M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z",key:"j76jl0"}],["path",{d:"M22 10v6",key:"1lu8f3"}],["path",{d:"M6 12.5V16a6 3 0 0 0 12 0v-3.5",key:"1r8lef"}]]],Cc:["House",[["path",{d:"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8",key:"5wwlr5"}],["path",{d:"M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"1d0kgt"}]]],jp:["PiggyBank",[["path",{d:"M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z",key:"1ivx2i"}],["path",{d:"M2 9v1c0 1.1.9 2 2 2h1",key:"nm575m"}],["path",{d:"M16 11h.01",key:"xkw8gn"}]]],_c:["Target",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["circle",{cx:"12",cy:"12",r:"6",key:"1vlfrh"}],["circle",{cx:"12",cy:"12",r:"2",key:"1c9p78"}]]],_p:["Sparkles",[["path",{d:"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z",key:"4pj2yx"}],["path",{d:"M20 3v4",key:"1olli1"}],["path",{d:"M22 5h-4",key:"1gvqau"}],["path",{d:"M4 17v2",key:"vumght"}],["path",{d:"M5 18H3",key:"zchphs"}]]],bl:["Flame",[["path",{d:"M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z",key:"96xj49"}]]],sn:["Check",[["path",{d:"M20 6 9 17l-5-5",key:"1gmf2c"}]]],es:["Plus",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"M12 5v14",key:"s699le"}]]],Zl:["ArrowRight",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]]],Nc:["ArrowLeft",[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]]],lo:["Gift",[["rect",{x:"3",y:"8",width:"18",height:"4",rx:"1",key:"bkv52"}],["path",{d:"M12 8v13",key:"1c76mn"}],["path",{d:"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7",key:"6wjy6b"}],["path",{d:"M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5",key:"1ihvrl"}]]],pc:["Mic",[["path",{d:"M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z",key:"131961"}],["path",{d:"M19 10v2a7 7 0 0 1-14 0v-2",key:"1vc78b"}],["line",{x1:"12",x2:"12",y1:"19",y2:"22",key:"x3vr5v"}]]],zc:["Send",[["path",{d:"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",key:"1ffxy3"}],["path",{d:"m21.854 2.147-10.94 10.939",key:"12cjpa"}]]],Sp:["RotateCcw",[["path",{d:"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",key:"1357e3"}],["path",{d:"M3 3v5h5",key:"1xhq8a"}]]],Np:["Search",[["circle",{cx:"11",cy:"11",r:"8",key:"4ej97u"}],["path",{d:"m21 21-4.3-4.3",key:"1qie3q"}]]],kp:["MessageCircle",[["path",{d:"M7.9 20A9 9 0 1 0 4 16.1L2 22Z",key:"vv11sd"}]]],Pp:["ThumbsUp",[["path",{d:"M7 10v12",key:"1qc93n"}],["path",{d:"M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z",key:"emmmcr"}]]],xp:["Lock",[["rect",{width:"18",height:"11",x:"3",y:"11",rx:"2",ry:"2",key:"1w4ew1"}],["path",{d:"M7 11V7a5 5 0 0 1 10 0v4",key:"fwvmzm"}]]],dp:["Bell",[["path",{d:"M10.268 21a2 2 0 0 0 3.464 0",key:"vwvbt9"}],["path",{d:"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326",key:"11g9vi"}]]],Mp:["UserRound",[["circle",{cx:"12",cy:"8",r:"5",key:"1hypcn"}],["path",{d:"M20 21a8 8 0 0 0-16 0",key:"rfgkzh"}]]],Rp:["Users",[["path",{d:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",key:"1yyitq"}],["circle",{cx:"9",cy:"7",r:"4",key:"nufk8"}],["path",{d:"M22 21v-2a4 4 0 0 0-3-3.87",key:"kshegd"}],["path",{d:"M16 3.13a4 4 0 0 1 0 7.75",key:"1da9ce"}]]],Cp:["Shield",[["path",{d:"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",key:"oel41y"}]]],vp:["CircleCheck",[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"m9 12 2 2 4-4",key:"dzmm74"}]]],Tp:["TriangleAlert",[["path",{d:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",key:"wmoenq"}],["path",{d:"M12 9v4",key:"juzpu7"}],["path",{d:"M12 17h.01",key:"p32p05"}]]]};
+
+function icon(key, size, sw) {
+  size = size || 24; sw = sw || 2;
+  const def = ICONS[key];
+  const name = def[0];
+  const kebab = name.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+  const inner = def[1].map(function (n) {
+    const attrs = Object.keys(n[1]).filter(function (k) { return k !== "key"; })
+      .map(function (k) { return k + '="' + n[1][k] + '"'; }).join(" ");
+    return "<" + n[0] + " " + attrs + "/>";
+  }).join("");
+  return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
+    '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + sw +
+    '" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-' + kebab + '">' + inner + "</svg>";
+}
+
+/* ---------- Utilidades ---------- */
+function E(s) {
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+const ae = function (c) {
+  return new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(Math.round(c || 0));
+};
+const ro = function (c) { return String(c == null ? "" : c).replace(/\D/g, ""); };
+const ln = function (c) { return ro(c).replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
+const lt = function (c) { return Number(ro(c) || 0); };
+const xc = function (c) { return c.length <= 11 ? 1 : c.length === 12 ? 0.9 : c.length === 13 ? 0.82 : 0.74; };
+const pt = function () { return Math.random().toString(36).slice(2, 10) + Date.now().toString(36); };
+const Ir = function () { return new Date().toISOString(); };
+
+const At = function (c) {
+  c = c || new Date();
+  return c.getFullYear() + "-" + String(c.getMonth() + 1).padStart(2, "0") + "-" + String(c.getDate()).padStart(2, "0");
+};
+const Gf = function (c) { const u = new Date(); u.setDate(u.getDate() + c); return At(u); };
+const qf = function (c) { const p = c.split("-").map(Number); return At(new Date(p[0], p[1] - 1, p[2] + 1)); };
+const Kf = ["D", "L", "M", "M", "J", "V", "S"];
+
+function yc(c) {
+  const u = new Set(c.map(function (i) { return i.day; }).filter(Boolean));
+  return Array.from({ length: 7 }, function (i, m) {
+    const y = new Date(); y.setDate(y.getDate() - (6 - m));
+    const k = At(y);
+    return { key: k, label: Kf[y.getDay()], on: u.has(k), today: m === 6 };
+  });
+}
+function gc(c) {
+  const u = new Set(c.map(function (y) { return y.day; }).filter(Boolean));
+  const i = new Date();
+  if (!u.has(At(i))) i.setDate(i.getDate() - 1);
+  let m = 0;
+  while (u.has(At(i))) { m++; i.setDate(i.getDate() - 1); }
+  return m;
+}
+function eo(c) {
+  const u = Array.from(new Set(c.map(function (k) { return k.day; }).filter(Boolean))).sort();
+  let i = 0, m = 0, y = null;
+  for (const k of u) { m = y && qf(y) === k ? m + 1 : 1; i = Math.max(i, m); y = k; }
+  return i;
+}
+function Xf(c) {
+  const u = At(), i = new Date();
+  i.setDate(i.getDate() - 1);
+  if (c === u) return "Hoy";
+  if (c === At(i)) return "Ayer";
+  const p = c.split("-").map(Number);
+  return new Date(p[0], p[1] - 1, p[2]).toLocaleDateString("es-CO", { day: "numeric", month: "short" });
+}
+
+/* ---------- Datos y lógica de negocio ---------- */
+const Yl = [
+  { id: "r3", days: 3, title: "Consejo personalizado", text: "NEXO revisa tus registros y te deja un consejo hecho a tu medida.", proDays: 0 },
+  { id: "r7", days: 7, title: "3 días de NEXO Pro", text: "El copiloto responde con un análisis más completo.", proDays: 3 },
+  { id: "r14", days: 14, title: "7 días de NEXO Pro", text: "Una semana entera del análisis completo del copiloto.", proDays: 7 }
+];
+const Fr = function (c, u) { u = u || new Date(); return !!(c && c.proUntil) && new Date(c.proUntil) > u; };
+function dc(c, u) { u = u || new Date(); return Fr(c, u) ? Math.ceil((new Date(c.proUntil) - u) / 864e5) : 0; }
+const bf = function (c, u) { return Yl.filter(function (i) { return c < i.days && u >= i.days; }); };
+
+function Yf(c, u) {
+  u = u || new Date();
+  const i = c.profile.income || null;
+  const m = u.getFullYear() + "-" + String(u.getMonth() + 1).padStart(2, "0");
+  const y = c.expenses.filter(function (_) { return _.day && _.day.startsWith(m); });
+  const k = y.reduce(function (_, q) { return _ + q.amount; }, 0);
+  const w = new Date(u.getFullYear(), u.getMonth() + 1, 0).getDate() - u.getDate() + 1;
+  const T = i === null ? null : i - k;
+  const P = y.reduce(function (_, q) { const o = Object.assign({}, _); o[q.category] = (_[q.category] || 0) + q.amount; return o; }, {});
+  const A = Object.entries(P).map(function (e) { return { category: e[0], amount: e[1], pct: Math.round(e[1] / k * 100) }; })
+    .sort(function (_, q) { return q.amount - _.amount; });
+  const B = c.goals.map(function (_) {
+    return Object.assign({}, _, { pct: Math.min(100, Math.round(_.saved / _.target * 100)), done: _.saved >= _.target });
+  });
+  return {
+    income: i, spent: k, available: T, daysLeft: w, over: T !== null && T < 0,
+    perDay: T !== null && T > 0 ? Math.floor(T / w) : 0,
+    spentPct: i ? Math.min(100, Math.round(k / i * 100)) : 0,
+    byCategory: A, top: A[0] || null, goals: B,
+    activeGoal: B.find(function (_) { return !_.done; }) || B[0] || null,
+    streak: gc(c.expenses), best: eo(c.expenses), week: yc(c.expenses),
+    expenseCount: c.expenses.length, hasEnoughData: !!i && c.expenses.length >= 3
+  };
+}
+function Zf(c) {
+  const u = c.activeGoal;
+  if (!u || !c.income || u.done) return null;
+  const i = u.target - u.saved;
+  const m = Math.max(1e4, Math.round(c.income * 0.2 / 1e3) * 1e3);
+  const y = Math.ceil(i / m);
+  return { goalId: u.id, text: 'Te faltan ' + ae(i) + ' para "' + u.name + '". Si apartas ' + ae(m) + " al mes (el 20% de lo que recibes), la logras en unos " + y + " " + (y === 1 ? "mes" : "meses") + "." };
+}
+function Jf(c) {
+  if (!c.top) return "Registra tus gastos unos días y te doy un consejo hecho a tu medida.";
+  const u = c.over ? " Este mes ya te pasaste de lo que recibes, así que vale la pena frenar lo no esencial." : "";
+  return "Lo que más pesa en tu mes es " + c.top.category.toLowerCase() + ": " + ae(c.top.amount) + ", el " + c.top.pct + "% de lo que has registrado. Prueba ponerle un tope semanal y mira cómo cambia tu cifra al día." + u;
+}
+
+const kc = "nexo:v1";
+const SEED_POSTS = [
+  { id: "seed1", title: "¿Cómo empiezo a ahorrar si gano poco?", body: "Recibo cerca de un salario mínimo y siempre llego a fin de mes sin nada. ¿Por dónde empiezo?", category: "Ahorro", author: "Camila R.", demo: true, createdAt: "2026-10-05T15:00:00.000Z",
+    answers: [{ id: "seed1a", author: "Andrés M.", body: "A mí me sirvió apartar un monto fijo pequeño apenas me pagaban, aunque fuera poco. Lo que no ves, no lo gastas.", helpful: 3, mine: false, demo: true }] },
+  { id: "seed2", title: "¿Me conviene sacar una tarjeta de crédito siendo estudiante?", body: "Me ofrecieron una en la universidad pero no sé si tiene sentido tenerla tan joven.", category: "Crédito", author: "Daniel P.", demo: true, createdAt: "2026-10-07T18:30:00.000Z", answers: [] },
+  { id: "seed3", title: "¿Cómo organizo mis gastos si me pagan por días?", body: "Trabajo medio tiempo y mis ingresos cambian cada semana. No sé cómo armar un presupuesto así.", category: "Presupuesto", author: "Valentina S.", demo: true, createdAt: "2026-10-09T13:10:00.000Z",
+    answers: [{ id: "seed3a", author: "Laura G.", body: "Yo calculo con lo que gané la semana anterior y no con lo que espero ganar. Así nunca me paso.", helpful: 2, mine: false, demo: true }] }
+];
+const Or = function () {
+  return { v: 1, profile: { onboarded: false, income: null, accounts: [] }, expenses: [], goals: [], rewards: { claimed: [], proUntil: null }, chat: [], forum: { posts: SEED_POSTS, notifications: [] } };
+};
+function tp() {
+  try {
+    const c = window.localStorage.getItem(kc);
+    if (!c) return Or();
+    const u = JSON.parse(c);
+    if (!u || u.v !== 1) return Or();
+    const i = Or();
+    return Object.assign({}, i, u, {
+      profile: Object.assign({}, i.profile, u.profile),
+      rewards: Object.assign({}, i.rewards, u.rewards),
+      forum: Object.assign({}, i.forum, u.forum)
+    });
+  } catch (e) { return Or(); }
+}
+function np() {
+  return [[-6, "Almuerzo", 14e3, "Comida"], [-6, "Bus", 3200, "Transporte"], [-5, "Café", 6500, "Comida"], [-5, "Cine", 28e3, "Salidas"],
+    [-4, "Mercado", 45e3, "Comida"], [-3, "Almuerzo", 15e3, "Comida"], [-3, "Transporte", 8400, "Transporte"], [-2, "Libros", 32e3, "Educación"],
+    [-1, "Domicilio", 22e3, "Comida"], [-1, "Almuerzo", 13500, "Comida"]].map(function (r) {
+    return { id: pt(), description: r[1], amount: r[2], category: r[3], day: Gf(r[0]), createdAt: Ir() };
+  });
+}
+function rp(c, u) {
+  switch (u.type) {
+    case "completeOnboarding": {
+      return Object.assign({}, c, {
+        profile: { onboarded: true, income: u.income, accounts: u.accounts },
+        goals: [{ id: pt(), name: u.goal.name, target: u.goal.target, saved: 0, createdAt: Ir() }].concat(c.goals)
+      });
+    }
+    case "updateIncome": return Object.assign({}, c, { profile: Object.assign({}, c.profile, { income: u.income }) });
+    case "addExpense": return Object.assign({}, c, { expenses: c.expenses.concat([u.expense]) });
+    case "addGoal": return Object.assign({}, c, { goals: c.goals.concat([Object.assign({ id: pt(), saved: 0, createdAt: Ir() }, u.goal)]) });
+    case "updateGoal": return Object.assign({}, c, { goals: c.goals.map(function (i) { return i.id === u.id ? Object.assign({}, i, u.patch) : i; }) });
+    case "contribute": return Object.assign({}, c, { goals: c.goals.map(function (i) { return i.id === u.id ? Object.assign({}, i, { saved: i.saved + u.amount }) : i; }) });
+    case "claimReward": {
+      const i = Yl.find(function (k) { return k.id === u.id; });
+      if (!i || c.rewards.claimed.includes(i.id)) return c;
+      const m = c.rewards.proUntil && new Date(c.rewards.proUntil) > new Date() ? new Date(c.rewards.proUntil) : new Date();
+      const y = i.proDays ? new Date(m.getTime() + i.proDays * 864e5).toISOString() : c.rewards.proUntil;
+      return Object.assign({}, c, { rewards: { claimed: c.rewards.claimed.concat([i.id]), proUntil: y } });
+    }
+    case "chatAdd": return Object.assign({}, c, { chat: c.chat.concat([u.msg]) });
+    case "chatResolve": return Object.assign({}, c, { chat: c.chat.map(function (i) { return i.id === u.id ? Object.assign({}, i, { resolved: u.value }) : i; }) });
+    case "chatClear": return Object.assign({}, c, { chat: [] });
+    case "addPost": return Object.assign({}, c, { forum: Object.assign({}, c.forum, { posts: [u.post].concat(c.forum.posts) }) });
+    case "addAnswer": return Object.assign({}, c, { forum: Object.assign({}, c.forum, { posts: c.forum.posts.map(function (i) {
+      return i.id === u.postId ? Object.assign({}, i, { answers: i.answers.concat([u.answer]) }) : i; }) }) });
+    case "toggleHelpful": return Object.assign({}, c, { forum: Object.assign({}, c.forum, { posts: c.forum.posts.map(function (i) {
+      return i.id !== u.postId ? i : Object.assign({}, i, { answers: i.answers.map(function (m) {
+        return m.id !== u.answerId ? m : Object.assign({}, m, { mine: !m.mine, helpful: m.helpful + (m.mine ? -1 : 1) }); }) }); }) }) });
+    case "notify": return Object.assign({}, c, { forum: Object.assign({}, c.forum, { notifications: [u.note].concat(c.forum.notifications) }) });
+    case "markNotificationsRead": return Object.assign({}, c, { forum: Object.assign({}, c.forum, { notifications: c.forum.notifications.map(function (i) { return Object.assign({}, i, { read: true }); }) }) });
+    case "loadDemo": {
+      const i = c.goals.map(function (y, k) { return k === 0 ? Object.assign({}, y, { saved: Math.max(y.saved, Math.round(y.target * 0.2 / 1e3) * 1e3) }) : y; });
+      const m = c.expenses.filter(function (y) { return y.day === At(); });
+      return Object.assign({}, c, { expenses: np().concat(m), goals: i });
+    }
+    case "reset": return Or();
+    default: return c;
+  }
+}
+
+/* ---------- Estado global ---------- */
+let state = tp();
+let toastText = "";
+let toastTimer = null;
+const pendingTimers = [];
+
+function dispatch(action) {
+  state = rp(state, action);
+  try { window.localStorage.setItem(kc, JSON.stringify(state)); } catch (e) {}
+  render();
+}
+const actions = {
+  completeOnboarding: function (w) { dispatch(Object.assign({ type: "completeOnboarding" }, w)); },
+  updateIncome: function (w) { dispatch({ type: "updateIncome", income: w }); },
+  addExpense: function (w) { dispatch({ type: "addExpense", expense: w }); },
+  addGoal: function (w) { dispatch({ type: "addGoal", goal: w }); },
+  updateGoal: function (w, T) { dispatch({ type: "updateGoal", id: w, patch: T }); },
+  contribute: function (w, T) { dispatch({ type: "contribute", id: w, amount: T }); },
+  claimReward: function (w) { dispatch({ type: "claimReward", id: w }); },
+  chatAdd: function (w) { dispatch({ type: "chatAdd", msg: w }); },
+  chatResolve: function (w, T) { dispatch({ type: "chatResolve", id: w, value: T }); },
+  chatClear: function () { dispatch({ type: "chatClear" }); },
+  toggleHelpful: function (w, T) { dispatch({ type: "toggleHelpful", postId: w, answerId: T }); },
+  addAnswer: function (w, T) { dispatch({ type: "addAnswer", postId: w, answer: { id: pt(), author: "Tú", body: T, helpful: 0, mine: false } }); },
+  markNotificationsRead: function () { dispatch({ type: "markNotificationsRead" }); },
+  loadDemo: function () { dispatch({ type: "loadDemo" }); },
+  reset: function () { dispatch({ type: "reset" }); },
+  publishPost: function (o) {
+    const P = pt();
+    const A = o.text.trim().match(/^[^?\n]{5,80}\??/);
+    const B = (A ? A[0] : o.text.trim().slice(0, 80)).trim();
+    dispatch({ type: "addPost", post: { id: P, title: B, body: o.text.trim(), category: o.category, author: "Tú", demo: false, createdAt: Ir(), answers: [] } });
+    pendingTimers.push(setTimeout(function () {
+      dispatch({ type: "addAnswer", postId: P, answer: { id: pt(), author: "Laura G.", body: "Buena pregunta. A mí me ayudó anotar todo durante un mes para ver a dónde se iba la plata antes de decidir nada.", helpful: 0, mine: false, demo: true } });
+      dispatch({ type: "notify", note: { id: pt(), text: "Nueva respuesta a tu pregunta", to: "/foro/" + P, read: false, createdAt: Ir() } });
+    }, 7e3));
+    return P;
+  }
+};
+
+function toast(text) {
+  toastText = text;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { toastText = ""; render(); }, 3000);
+  render();
+}
+
+/* ---------- Router por hash ---------- */
+const fc = function () { return window.location.hash.replace(/^#/, "") || "/"; };
+function nav(c, opts) {
+  if (opts && opts.replace) window.location.replace("#" + c);
+  else window.location.hash = c;
+}
+function parseRoute(c) {
+  const parts = c.split("?");
+  return { path: parts[0].replace(/\/+$/, "") || "/", query: new URLSearchParams(parts[1] || "") };
+}
+
+/* ---------- Paletas ---------- */
+const PALETTES = [
+  { id: "lima", name: "Lima y tinta", note: "La actual. Fresca, con acento verde lima.", swatch: ["#F6F2EA", "#14142B", "#C9F25C", "#3A4BFF"] },
+  { id: "coral", name: "Coral y ciruela", note: "Cálida y cercana, más amable.", swatch: ["#FFF5EE", "#2A1038", "#FF8F70", "#6C4BFF"] },
+  { id: "mar", name: "Mar y menta", note: "Serena, transmite calma y confianza.", swatch: ["#EEF6F5", "#0D2B33", "#7BE3C3", "#2F5BFF"] },
+  { id: "sol", name: "Sol y noche", note: "Enérgica. Ojo: el amarillo recuerda a Bancolombia.", swatch: ["#FFFAEB", "#1A1814", "#FFD23F", "#2748FF"] }
+];
+const PAL_KEY = "nexo:palette";
+const PAL_BG = { lima: "#F6F2EA", coral: "#FFF5EE", mar: "#EEF6F5", sol: "#FFFAEB" };
+function applyPalette(c) {
+  const u = PALETTES.some(function (m) { return m.id === c; }) ? c : "lima";
+  if (u === "lima") document.documentElement.removeAttribute("data-palette");
+  else document.documentElement.setAttribute("data-palette", u);
+  let i = document.querySelector('meta[name="theme-color"]');
+  if (!i) { i = document.createElement("meta"); i.name = "theme-color"; document.head.appendChild(i); }
+  i.content = PAL_BG[u];
+  try { window.localStorage.setItem(PAL_KEY, u); } catch (e) {}
+  return u;
+}
+function storedPalette() {
+  try { return window.localStorage.getItem(PAL_KEY) || "lima"; } catch (e) { return "lima"; }
+}
+let curPalette = storedPalette();
+
+/* ---------- Categorías e íconos por tema ---------- */
+const CATS = [
+  { id: "Comida", Icon: "yp" }, { id: "Transporte", Icon: "mp" }, { id: "Salidas", Icon: "Ec" },
+  { id: "Compras", Icon: "Ep" }, { id: "Educación", Icon: "pp" }, { id: "Otro", Icon: "so" }
+];
+const catIcon = function (c) { const f = CATS.find(function (i) { return i.id === c; }); return f ? f.Icon : "so"; };
+function goalIcon(c) {
+  const u = (c || "").toLowerCase();
+  return /moto|bici/.test(u) ? "fp"
+    : /viaje|vacacion|tiquete|playa/.test(u) ? "wp"
+    : /celular|tel[eé]fono|iphone|portátil|portatil|computador/.test(u) ? "zp"
+    : /carro|auto/.test(u) ? "hp"
+    : /universidad|matr[ií]cula|estudio|curso/.test(u) ? "gp"
+    : /casa|apartamento|arriendo/.test(u) ? "Cc"
+    : /emergencia|ahorro|colch[oó]n/.test(u) ? "jp" : "_c";
+}
+
+/* ---------- Interpretación de gastos por voz o texto ---------- */
+const NUM_WORDS = { un: 1, una: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, quince: 15, veinte: 20, treinta: 30, cuarenta: 40, cincuenta: 50 };
+const MULT = { mil: 1e3, luca: 1e3, lucas: 1e3, k: 1e3, millon: 1e6, "millón": 1e6, millones: 1e6, palo: 1e6, palos: 1e6 };
+const CAT_RX = {
+  Comida: /almuerzo|comida|desayuno|cena|restaurante|mercado|caf[eé]|pizza|hamburguesa|domicilio|empanada|snack|jugo|helado|tienda/,
+  Transporte: /transporte|bus|taxi|uber|didi|transmilenio|gasolina|metro|pasaje|moto|peaje|parqueadero|sitp/,
+  Salidas: /salidas?|cine|fiesta|cerveza|trago|concierto|salida|discoteca|bar\b|rumba|paseo/,
+  Compras: /compras?\b|ropa|zapatos|tenis|compr[eé]|camiseta|regalo|maquillaje|aud[ií]fonos/,
+  "Educación": /educaci[oó]n|libro|matr[ií]cula|curso|universidad|fotocopias|semestre|taller/
+};
+function Bp(c) {
+  let u = c.replace(/\$/g, " ");
+  while (/(\d)[.,](\d{3})(?!\d)/.test(u)) u = u.replace(/(\d)[.,](\d{3})(?!\d)/g, "$1$2");
+  let i = u.match(/(\d+(?:[.,]\d+)?)\s*(millones|mill[oó]n|mil|lucas?|k|palos?)?(?![a-záéíóúA-ZÁÉÍÓÚ])/i);
+  if (i) {
+    const m = parseFloat(i[1].replace(",", "."));
+    return { amount: Math.round(m * (i[2] ? MULT[i[2].toLowerCase()] : 1)), matched: i[0], clean: u };
+  }
+  i = u.match(/\b(un|una|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|quince|veinte|treinta|cuarenta|cincuenta)\s+(millones|mill[oó]n|mil|lucas?|palos?)\b/i);
+  return i ? { amount: NUM_WORDS[i[1].toLowerCase()] * MULT[i[2].toLowerCase()], matched: i[0], clean: u } : { amount: null, matched: "", clean: u };
+}
+function Hp(c) {
+  c = c || "";
+  const u = c.trim();
+  const p = Bp(u), i = p.amount, m = p.matched, y = p.clean;
+  const k = u.toLowerCase();
+  const f = Object.entries(CAT_RX).find(function (e) { return e[1].test(k); });
+  const j = f ? f[0] : "Otro";
+  let w = m ? y.replace(m, " ") : y;
+  w = w.replace(/\s+/g, " ").trim();
+  let T;
+  do {
+    T = w;
+    w = w.replace(/^(gast[eé]|pagu[eé]|compr[eé]|me cost[oó]|fueron|fue|son|en|de|por|para|pesos|el|la|un|una)\s+/i, "").replace(/[,.]+$/, "").trim();
+  } while (w !== T);
+  w = w ? w.charAt(0).toUpperCase() + w.slice(1) : "";
+  return { amount: i, category: j, note: w };
+}
+
+/* ---------- Copiloto ---------- */
+function Mc(c) {
+  const u = (c || "").toLowerCase();
+  return /meta|ahorr|voy bien|logro|alcanz/.test(u) ? "goal"
+    : /m[aá]s gast|categor[ií]a|en qu[eé] gast|donde se me va|d[oó]nde se me va/.test(u) ? "category"
+    : /gastar|semana|al d[ií]a|me queda|disponible|presupuesto|alcanza|este mes/.test(u) ? "budget"
+    : /racha|d[ií]as seguidos/.test(u) ? "streak" : "general";
+}
+const Yp = function (c) { return ["goal", "category", "budget"].includes(c); };
+function Zp(c, u, i) {
+  let m;
+  if (c === "budget") {
+    m = u.over ? "Este mes ya te pasaste por " + ae(-u.available) + " frente a lo que recibes. Lo mejor es pausar gastos no esenciales hasta fin de mes."
+      : "Este mes te quedan " + ae(u.available) + " y faltan " + u.daysLeft + " días. Eso da unos " + ae(u.perDay) + " al día.";
+  } else if (c === "goal") {
+    const y = u.activeGoal;
+    m = y ? 'Vas en ' + y.pct + '% de "' + y.name + '": ' + ae(y.saved) + " de " + ae(y.target) + ". Te faltan " + ae(y.target - y.saved) + "."
+      : "Todavía no tienes una meta creada. Crea una y te ayudo a seguirla.";
+  } else if (c === "category") {
+    m = u.top ? "Lo que más pesa este mes es " + u.top.category.toLowerCase() + ": " + ae(u.top.amount) + ", el " + u.top.pct + "% de lo que has registrado."
+      : "Aún no tengo gastos de este mes para comparar.";
+  } else if (c === "streak") {
+    m = u.streak > 0 ? "Llevas " + u.streak + " " + (u.streak === 1 ? "día" : "días") + " seguidos registrando. Tu mejor racha es de " + u.best + "."
+      : "Hoy puedes empezar una racha nueva registrando un gasto.";
+  } else {
+    m = u.income ? "Te puedo ayudar con tu presupuesto, tus metas o tus gastos. Por ahora llevas " + ae(u.spent) + " gastados este mes y te quedan " + ae(u.available) + "."
+      : "Te puedo ayudar con tu presupuesto, tus metas o tus gastos.";
+  }
+  if (i && u.byCategory.length > 1) {
+    m += " Análisis ampliado: " + u.byCategory.slice(0, 3).map(function (y) { return y.category + " " + ae(y.amount) + " (" + y.pct + "%)"; }).join(", ") + ".";
+  }
+  return m;
+}
+const Jp = function (c) {
+  return {
+    ingresoMensual: c.income, gastadoEsteMes: c.spent, disponible: c.available, diasRestantesDelMes: c.daysLeft, puedesGastarAlDia: c.perDay,
+    categorias: c.byCategory.slice(0, 4).map(function (u) { return { categoria: u.category, monto: u.amount, porcentaje: u.pct }; }),
+    metas: c.goals.map(function (u) { return { nombre: u.name, objetivo: u.target, ahorrado: u.saved }; }),
+    rachaActual: c.streak, mejorRacha: c.best, gastosRegistrados: c.expenseCount
+  };
+};
+async function bp(o) {
+  const c = o.question, u = o.snapshot, i = o.history || [], m = !!o.pro;
+  const y = Mc(c), k = new AbortController(), j = setTimeout(function () { k.abort(); }, 2e4);
+  try {
+    const w = await fetch("/api/copilot", {
+      method: "POST", headers: { "Content-Type": "application/json" }, signal: k.signal,
+      body: JSON.stringify({
+        question: c, pro: m, context: Jp(u),
+        history: i.filter(function (P) { return P.text && !P.insufficient; }).slice(-6).map(function (P) { return { role: P.from === "you" ? "user" : "assistant", text: P.text }; })
+      })
+    });
+    if (!w.ok) throw new Error("api");
+    const T = await w.json();
+    if (!T.text) throw new Error("empty");
+    return { text: T.text, source: "ia", intent: y };
+  } catch (e) {
+    return { text: Zp(y, u, m), source: "local", intent: y };
+  } finally { clearTimeout(j); }
+}
+const SUGGESTED = ["¿Cuánto puedo gastar al día?", "¿Voy bien con mi meta?", "¿En qué gasté más?"];
+
+/* ---------- Comunidad ---------- */
+function Rc(c) {
+  const u = (c || "").trim();
+  return u.length < 15 ? { ok: false, reason: "Cuéntanos un poco más. Escribe al menos 15 caracteres." }
+    : u.length > 500 ? { ok: false, reason: "Es muy larga. Resúmela en menos de 500 caracteres." }
+    : /https?:\/\/|www\.|\.com\b|\.co\b/i.test(u) ? { ok: false, reason: "No se permiten enlaces en las preguntas." }
+    : /[\w.+-]+@[\w-]+\.[\w.]+/.test(u) ? { ok: false, reason: "No compartas correos en la comunidad." }
+    : /\b3\d{2}[\s-]?\d{3}[\s-]?\d{4}\b/.test(u) ? { ok: false, reason: "No compartas teléfonos en la comunidad." }
+    : /contrase[ñn]a|\bclave\b|\bcvv\b|\bpin\b|n[uú]mero de (tarjeta|cuenta)/i.test(u) ? { ok: false, reason: "Nunca compartas claves ni datos de tarjetas o cuentas." }
+    : /ganancias? garantizad|doblar? tu (plata|dinero)|inversi[oó]n segura|escr[ií]beme al privado|gana dinero f[aá]cil|pr[eé]stamos? inmediato/i.test(u) ? { ok: false, reason: "Parece una promoción. En esta comunidad solo se hacen preguntas y se comparten experiencias." }
+    : { ok: true };
+}
+const FORUM_CATS = ["Ahorro", "Presupuesto", "Crédito", "Hábitos", "Primer empleo", "Otra"];
+const initial = function (c) { return (c || "?").trim().charAt(0).toUpperCase(); };
+const ago = function (c) {
+  const u = Math.floor((Date.now() - new Date(c)) / 864e5);
+  return u <= 0 ? "hoy" : "hace " + u + " " + (u === 1 ? "día" : "días");
+};
+
+/* ---------- Componentes (devuelven HTML) ---------- */
+function Mark(size, decorative) {
+  size = size || "normal";
+  const cls = ["mark", size === "large" ? "large" : "", size === "small" ? "small" : ""].filter(Boolean).join(" ");
+  const attrs = decorative ? 'aria-hidden="true"' : 'role="img" aria-label="NEXO"';
+  return '<span class="' + cls + '" ' + attrs + '><svg viewBox="0 0 48 48" aria-hidden="true">' +
+    '<path d="M15 32L33 16" stroke="#fff" stroke-width="3.5" stroke-linecap="round"></path>' +
+    '<circle cx="15" cy="32" r="5.5" fill="#fff"></circle>' +
+    '<circle cx="33" cy="16" r="5.5" style="fill:var(--lime)"></circle></svg></span>';
+}
+function dataAttrs(d) {
+  return Object.keys(d || {}).map(function (k) { return ' data-' + k + '="' + E(d[k]) + '"'; }).join("");
+}
+function Btn(children, o) {
+  o = o || {};
+  const cls = ["btn", o.variant || "primary", o.size === "small" ? "small-btn" : "", o.full ? "full" : ""].filter(Boolean).join(" ");
+  return '<button class="' + cls + '"' + (o.type ? ' type="' + o.type + '"' : "") + (o.a ? ' data-a="' + o.a + '"' : "") + dataAttrs(o.d) + (o.disabled ? " disabled" : "") + ">" + children + "</button>";
+}
+function Alert(children, kind) {
+  kind = kind || "warn";
+  return '<div class="alert ' + kind + '" role="' + (kind === "ok" ? "status" : "alert") + '">' + icon(kind === "ok" ? "vp" : "Tp", 20) + "<div>" + children + "</div></div>";
+}
+function Chip(children, o) {
+  o = o || {};
+  return '<button type="button" class="chip ' + (o.on ? "on" : "") + '" aria-pressed="' + !!o.on + '" data-a="' + o.a + '"' + dataAttrs(o.d) + ">" + (o.Icon ? icon(o.Icon, 16) : "") + children + "</button>";
+}
+function Field(label, id, error, help, children) {
+  return '<div class="field"><label for="' + id + '">' + label + "</label>" + children +
+    (error ? '<span class="field-error" id="' + id + '-err">' + E(error) + "</span>" : help ? '<span class="small muted">' + help + "</span>" : "") + "</div>";
+}
+function Money(value, size) {
+  const i = ae(value);
+  return '<span class="money ' + (size || "") + '" style="--k:' + xc(i) + '">' + E(i) + "</span>";
+}
+function Streak(week) {
+  return '<div class="streak-days">' + week.map(function (j) {
+    return '<div class="streak-day ' + (j.on ? "on" : "") + " " + (j.today ? "today" : "") + '"><span class="streak-dot">' + (j.on ? icon("sn", 14) : "") + "</span>" + j.label + "</div>";
+  }).join("") + "</div>";
+}
+function Screen(title, to, children, right) {
+  return '<div class="screen"><div class="screen-top"><button class="back-btn" data-a="nav" data-to="' + (to || "/") + '" aria-label="Volver">' + icon("Nc", 20) +
+    '</button><h1 class="screen-title">' + title + '</h1><span class="spacer"></span>' + (right || "") + '</div><div class="stack">' + children + "</div></div>";
+}
+function moneyInput(o) {
+  return '<input' + (o.id ? ' id="' + o.id + '"' : "") + ' class="' + (o.cls || "input") + '"' + (o.style ? ' style="' + o.style + '"' : "") +
+    ' inputmode="numeric"' + (o.placeholder ? ' placeholder="' + o.placeholder + '"' : "") + ' value="' + E(o.value) + '"' +
+    (o.aria ? ' aria-label="' + o.aria + '"' : "") + ' aria-invalid="' + !!o.invalid + '"' + (o.describedby ? ' aria-describedby="' + o.describedby + '"' : "") +
+    ' data-i="' + o.i + '" data-fk="' + o.i + '" data-end="1"' + (o.autofocus ? " data-autofocus" : "") + ">";
+}
+function textInput(o) {
+  return '<input' + (o.id ? ' id="' + o.id + '"' : "") + ' class="input"' + (o.aria ? ' aria-label="' + o.aria + '"' : "") +
+    (o.placeholder ? ' placeholder="' + o.placeholder + '"' : "") + ' value="' + E(o.value) + '"' +
+    (o.invalid != null ? ' aria-invalid="' + !!o.invalid + '"' : "") + (o.describedby ? ' aria-describedby="' + o.describedby + '"' : "") +
+    (o.maxlength ? ' maxlength="' + o.maxlength + '"' : "") + ' data-i="' + o.i + '" data-fk="' + o.i + '">';
+}
+
+/* ---------- Estado local de cada pantalla ---------- */
+let ui = {};
+let lastHash = null;
+let recognition = null;
+const SR = typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
+
+function resetUI() {
+  if (recognition && recognition.abort) { try { recognition.abort(); } catch (e) {} }
+  recognition = null;
+  ui = {};
+}
+
+/* ---------- Pantallas ---------- */
+const SLIDES = [
+  { title: "Tu plata, sin rodeos", text: "Mira cuánto te queda este mes y cuánto puedes gastar al día, sin hojas de cálculo.", art: 1 },
+  { title: "Registra en segundos", text: 'Escribe o dilo en voz alta: "gasté 15 mil en almuerzo". NEXO lo entiende y tú solo confirmas.', art: 2 },
+  { title: "Un copiloto, no un banco", text: "Te acompaño con tus metas y tus dudas. Nunca te pido claves ni que conectes tus cuentas.", art: 3 }
+];
+const ONB_ACCOUNTS = ["Débito", "Crédito", "Efectivo", "Billetera digital"];
+const GOAL_IDEAS = ["Moto", "Viaje", "Celular", "Fondo de emergencia", "Universidad"];
+
+function Illus(n) {
+  const u = "fill:var(--ink)", i = "fill:var(--lime)", m = "fill:var(--ai)", y = "fill:var(--ink);opacity:0.12";
+  let out = '<svg viewBox="0 0 320 200" aria-hidden="true" role="img">';
+  if (n === 1) {
+    out += '<rect x="40" y="110" width="240" height="14" rx="7" style="' + y + '"></rect>' +
+      '<rect x="40" y="110" width="150" height="14" rx="7" style="' + u + '"></rect>' +
+      '<circle cx="228" cy="68" r="38" style="' + i + '"></circle>' +
+      '<circle cx="228" cy="68" r="16" style="' + u + '"></circle>' +
+      '<rect x="40" y="146" width="90" height="14" rx="7" style="' + m + '"></rect>';
+  }
+  if (n === 2) {
+    out += '<rect x="52" y="44" width="150" height="46" rx="23" style="' + u + '"></rect>' +
+      '<rect x="118" y="108" width="150" height="46" rx="23" style="' + i + '"></rect>' +
+      '<circle cx="76" cy="67" r="9" style="' + i + '"></circle>' +
+      '<circle cx="244" cy="131" r="9" style="' + u + '"></circle>';
+  }
+  if (n === 3) {
+    out += '<path d="M96 138L224 62" style="stroke:var(--ink)" stroke-width="12" stroke-linecap="round" fill="none"></path>' +
+      '<circle cx="96" cy="138" r="30" style="' + m + '"></circle>' +
+      '<circle cx="224" cy="62" r="30" style="' + i + '"></circle>' +
+      '<circle cx="96" cy="138" r="10" fill="#fff"></circle>';
+  }
+  return out + "</svg>";
+}
+
+function Onboarding() {
+  const s = ui.onb || (ui.onb = { step: 0, income: "", accounts: [], goalName: "", goalTarget: "", errors: {} });
+  const u = s.step;
+  if (u < 3) {
+    const sl = SLIDES[u];
+    return '<div class="onb"><div class="onb-top">' + Mark("small") + '<span class="brand-word">NEXO</span><span class="spacer"></span>' +
+      Btn("Saltar", { variant: "ghost", size: "small", a: "onb-skip" }) + "</div>" +
+      '<div class="onb-body"><div class="illus">' + Illus(sl.art) + "</div>" +
+      (u === 0 ? '<div class="eyebrow">Tu copiloto financiero</div>' : "") +
+      '<h1 class="welcome-title" style="margin-bottom:0">' + E(sl.title) + "</h1>" +
+      '<p class="muted" style="font-size:18px;line-height:1.5">' + E(sl.text) + "</p>" +
+      '<span class="spacer"></span><div class="dots" aria-label="Pantalla ' + (u + 1) + ' de 3">' +
+      SLIDES.map(function (o, z) { return '<i class="' + (z === u ? "on" : "") + '"></i>'; }).join("") + "</div>" +
+      Btn((u === 2 ? "Empezar" : "Siguiente") + " " + icon("Zl", 18), { full: true, a: "onb-next" }) + "</div></div>";
+  }
+  const B = s.errors;
+  const J = Object.keys(B).length > 0;
+  return '<form class="onb" data-f="onb-submit" novalidate>' +
+    '<div class="onb-top"><button type="button" class="back-btn" data-a="onb-back" aria-label="Volver">' + icon("Nc", 20) + '</button><h1 class="screen-title">Tu situación inicial</h1></div>' +
+    '<div class="onb-body">' +
+    (J ? Alert("Completa los campos pendientes para continuar.") : '<p class="muted" style="margin:0">Solo lo mínimo para empezar. No pedimos claves ni datos de tus cuentas.</p>') +
+    Field("Ingresos mensuales", "income", B.income, "Lo que recibes en un mes, aproximado.",
+      moneyInput({ id: "income", placeholder: "$ 1.500.000", value: s.income ? "$ " + ln(s.income) : "", invalid: !!B.income, describedby: B.income ? "income-err" : "", i: "onb-income" })) +
+    '<div class="field"><label>Cómo manejas tu plata (opcional)</label><div class="chips">' +
+    ONB_ACCOUNTS.map(function (x) { return Chip(x, { on: s.accounts.includes(x), a: "onb-account", d: { v: x } }); }).join("") +
+    '</div><span class="small muted">Solo para ubicarme. No pedimos números de tarjeta ni claves.</span></div>' +
+    Field("Tu primera meta", "goalName", B.goalName, "",
+      textInput({ id: "goalName", placeholder: "Ej. Ahorrar para una moto", value: s.goalName, invalid: !!B.goalName, describedby: B.goalName ? "goalName-err" : "", i: "onb-goalname" })) +
+    '<div class="chips scroll" aria-label="Ideas de meta">' +
+    GOAL_IDEAS.map(function (x) { return Chip(x, { on: s.goalName === x, a: "onb-idea", d: { v: x } }); }).join("") + "</div>" +
+    Field("¿Cuánto necesitas para lograrla?", "goalTarget", B.goalTarget, "",
+      moneyInput({ id: "goalTarget", placeholder: "$ 3.000.000", value: s.goalTarget ? "$ " + ln(s.goalTarget) : "", invalid: !!B.goalTarget, describedby: B.goalTarget ? "goalTarget-err" : "", i: "onb-goaltarget" })) +
+    '<span class="spacer"></span>' + Btn("Continuar " + icon("Zl", 18), { type: "submit", full: true }) + "</div></form>";
+}
+
+function TopBar(path, snap) {
+  const m = state.forum.notifications.filter(function (k) { return !k.read; }).length;
+  const y = Fr(state.rewards);
+  return '<header class="mobile-top">' + Mark("small") + '<span class="brand-word">NEXO</span>' + (y ? '<span class="pro-badge">PRO</span>' : "") +
+    '<span class="spacer"></span>' +
+    '<button class="icon-btn" data-a="nav" data-to="/avisos" aria-label="' + (m ? "Avisos, " + m + " nuevos" : "Avisos") + '">' + icon("dp", 18) + (m > 0 ? '<span class="dot-badge">' + m + "</span>" : "") + "</button>" +
+    '<button class="streak-chip" data-a="nav" data-to="/racha" aria-label="Racha de ' + snap.streak + ' días">' + icon("bl", 15) + snap.streak + "</button>" +
+    '<button class="icon-btn ' + (path === "/perfil" ? "active" : "") + '" data-a="nav" data-to="/perfil" aria-label="Perfil">' + icon("Mp", 18) + "</button></header>";
+}
+const NAV_ITEMS = [
+  { id: "/", label: "Inicio", Icon: "Cc" }, { id: "/gastos", label: "Gastos", Icon: "so" }, { id: "/copiloto", label: "Copiloto", Icon: null },
+  { id: "/metas", label: "Metas", Icon: "_c" }, { id: "/foro", label: "Comunidad", Icon: "Rp" }
+];
+function BottomNav(path) {
+  const u = function (i) { return i === "/" ? path === "/" : path.startsWith(i); };
+  return '<nav class="mobile-nav" aria-label="Navegación principal">' + NAV_ITEMS.map(function (it) {
+    const k = u(it.id);
+    return '<button class="' + (k ? "active" : "") + '" data-a="nav" data-to="' + it.id + '"' + (k ? ' aria-current="page"' : "") + ">" +
+      (it.Icon ? '<span class="nav-ico">' + icon(it.Icon, 20, k ? 2.2 : 1.8) + "</span>" : '<span class="nav-mark">' + Mark("normal", true) + "</span>") +
+      "<span>" + it.label + "</span></button>";
+  }).join("") + "</nav>";
+}
+
+function ExpenseRow(j) {
+  return '<div class="list-row"><div class="icon-tile" data-cat="' + E(j.category) + '">' + icon(catIcon(j.category), 20) + "</div>" +
+    '<div style="flex:1;min-width:0"><b>' + E(j.description) + '</b><div class="small muted">' + E(j.category) + "</div></div>" +
+    '<b class="num">' + ae(j.amount) + "</b></div>";
+}
+
+function Home(snap) {
+  const c = state, u = snap;
+  const i = c.expenses.slice().reverse().slice(0, 3);
+  const m = u.activeGoal;
+  const k = u.top ? "Lo que más pesa este mes es " + u.top.category.toLowerCase() + ": " + u.top.pct + "% de lo que has registrado." : "Registra tu primer gasto de hoy y empiezo a mostrarte en qué se te va la plata.";
+  return '<div class="stack">' +
+    '<section class="hero-card" aria-label="Resumen del mes"><div class="hero-label">' + (u.over ? "Te pasaste este mes por" : "Te quedan este mes") + "</div>" +
+    Money(Math.abs(u.available == null ? 0 : u.available)) +
+    '<div class="hero-bar ' + (u.over ? "over" : "") + '" role="img" aria-label="Has gastado el ' + u.spentPct + '% de tus ingresos"><span style="width:' + u.spentPct + '%"></span></div>' +
+    '<div class="hero-meta"><div>Gastado<b>' + ae(u.spent) + '</b></div><div style="text-align:right">' + (u.over ? "Ingresos del mes" : "Puedes gastar al día") + "<b>" + (u.over ? ae(u.income) : ae(u.perDay)) + "</b></div></div></section>" +
+    '<div class="stack" style="gap:10px">' +
+    Btn(icon("es", 18) + " Registrar gasto de hoy", { full: true, a: "nav", d: { to: "/gastos/nuevo" } }) +
+    Btn(icon("_p", 18) + " Consultar al copiloto", { full: true, variant: "tertiary", a: "nav", d: { to: "/copiloto" } }) + "</div>" +
+    '<section class="insight"><div class="insight-title">' + Mark("small") + " NEXO</div><p>" + E(k) + "</p>" +
+    Btn("Preguntarle algo " + icon("Zl", 15), { variant: "ghost", size: "small", a: "nav", d: { to: "/copiloto" } }) + "</section>" +
+    '<button class="card card-lime tap" data-a="nav" data-to="/racha" aria-label="Ver racha y recompensas" style="border:0">' +
+    '<div class="row">' + icon("bl", 22) + '<h3 style="margin:0">' + (u.streak === 0 ? "Empieza tu racha" : u.streak + " " + (u.streak === 1 ? "día" : "días") + " de racha") + "</h3><span class=\"spacer\"></span>" + icon("Zl", 18) + "</div>" +
+    '<p class="small" style="margin:4px 0 0">' + (u.streak === 0 ? "Registra un gasto hoy y cuenta como el día 1." : "Registrar cada día me deja darte respuestas con sentido.") + "</p>" +
+    Streak(u.week) + "</button>" +
+    '<section class="card"><div class="row"><h2 style="margin:0">Tu meta</h2><span class="spacer"></span>' +
+    Btn("Ver metas", { variant: "ghost", size: "small", a: "nav", d: { to: "/metas" } }) + "</div>" +
+    (m ? '<button class="row" style="border:0;background:transparent;width:100%;text-align:left;padding:14px 0 0;color:inherit" data-a="nav" data-to="/metas/' + E(m.id) + '">' +
+      '<span class="icon-tile lime">' + icon(goalIcon(m.name), 22) + "</span>" +
+      '<span style="flex:1;min-width:0"><span class="row"><b style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + E(m.name) + '</b><span class="spacer"></span><span class="small muted">' + m.pct + "%</span></span>" +
+      '<span class="bar" style="display:block;margin:8px 0 6px"><span style="width:' + m.pct + '%"></span></span>' +
+      '<span class="small muted">' + ae(m.saved) + " de " + ae(m.target) + "</span></span></button>"
+      : '<p class="muted small" style="margin:12px 0 0">Todavía no has creado una meta.</p>') + "</section>" +
+    '<section class="card"><h2>Últimos gastos</h2>' +
+    (i.length === 0 ? '<p class="muted small" style="margin:0">Aquí van a aparecer tus gastos apenas registres el primero.</p>' : '<div class="list">' + i.map(ExpenseRow).join("") + "</div>") + "</section></div>";
+}
+
+function Expenses(snap) {
+  const c = state, u = snap;
+  const i = c.expenses.slice().sort(function (y, k) { return y.createdAt < k.createdAt ? 1 : -1; }).reduce(function (y, k) { (y[k.day] = y[k.day] || []).push(k); return y; }, {});
+  const m = Object.keys(i).sort().reverse();
+  return '<div class="stack"><div class="row"><h1 style="margin:0">Gastos</h1><span class="spacer"></span>' +
+    Btn(icon("es", 16) + " Registrar", { size: "small", a: "nav", d: { to: "/gastos/nuevo" } }) + "</div>" +
+    (u.byCategory.length > 0 ? '<section class="card"><div class="row"><h2 style="margin:0">Este mes</h2><span class="spacer"></span><b class="num">' + ae(u.spent) + "</b></div>" +
+      '<div class="stack" style="margin-top:14px;gap:14px">' + u.byCategory.map(function (y) {
+        return "<div><div class=\"row\"><span class=\"icon-tile sm\" data-cat=\"" + E(y.category) + "\">" + icon(catIcon(y.category), 18) + "</span><b>" + E(y.category) + "</b><span class=\"spacer\"></span><span class=\"small muted\">" + y.pct + "%</span><b class=\"num\">" + ae(y.amount) + "</b></div>" +
+          '<div class="bar" style="margin-top:8px"><span style="width:' + y.pct + '%"></span></div></div>';
+      }).join("") + "</div></section>" : "") +
+    (m.length === 0 ? '<div class="empty">' + icon("lo", 28) + '<p style="margin:10px 0 14px">Todavía no hay gastos. El primero toma 10 segundos.</p>' + Btn("Registrar mi primer gasto", { a: "nav", d: { to: "/gastos/nuevo" } }) + "</div>"
+      : m.map(function (y) {
+        return '<section class="card"><div class="group-title" style="margin:0 0 4px">' + E(Xf(y)) + '</div><div class="list">' + i[y].map(ExpenseRow).join("") + "</div></section>";
+      }).join("")) + "</div>";
+}
+
+function Register() {
+  const s = ui.reg || (ui.reg = { tab: "escribir", amount: "", category: "", note: "", errors: {}, result: null, voiceText: "", parsed: null, voiceErr: "", listening: false });
+  if (s.result) {
+    const V = s.result.expense;
+    return Screen("Gasto registrado", "/",
+      '<div class="success-mark">' + icon("sn", 36) + "</div>" +
+      '<div class="card row"><span class="icon-tile" data-cat="' + E(V.category) + '">' + icon(catIcon(V.category), 22) + "</span>" +
+      '<div style="flex:1"><b>' + E(V.description) + '</b><div class="small muted">' + E(V.category) + " · Hoy</div></div><b class=\"num\">" + ae(V.amount) + "</b></div>" +
+      '<section class="card card-lime"><h3 style="margin:0">Racha actual: ' + s.result.streak + " " + (s.result.streak === 1 ? "día" : "días") + "</h3>" + Streak(s.result.week) + "</section>" +
+      s.result.unlocked.map(function (x) { return Alert("Desbloqueaste una recompensa: " + E(x.title) + ".", "ok"); }).join("") +
+      (s.result.unlocked.length > 0 ? Btn(icon("lo", 18) + " Ver mi recompensa", { full: true, variant: "secondary", a: "nav", d: { to: "/racha" } }) : "") +
+      Btn("Volver al inicio", { full: true, a: "nav", d: { to: "/" } }) +
+      Btn("Registrar otro gasto", { full: true, variant: "ghost", a: "reg-again" }));
+  }
+  const A = s.errors;
+  let body = '<div class="tabs" role="tablist"><button role="tab" aria-selected="' + (s.tab === "escribir") + '" class="tab ' + (s.tab === "escribir" ? "on" : "") + '" data-a="reg-tab" data-v="escribir">Escribir</button>' +
+    '<button role="tab" aria-selected="' + (s.tab === "voz") + '" class="tab ' + (s.tab === "voz" ? "on" : "") + '" data-a="reg-tab" data-v="voz">' + icon("pc", 16) + " Grabar audio</button></div>";
+  if (s.tab === "escribir") {
+    body += '<form class="stack" data-f="reg-submit" novalidate>' +
+      ((A.amount || A.category) ? Alert(E(A.amount || A.category)) : "") +
+      '<div><label class="small muted" for="amount">Monto</label><div class="amount-wrap ' + (A.amount ? "err" : "") + '"><span>$</span>' +
+      moneyInput({ id: "amount", cls: "amount-input", style: "--k:" + xc("$ " + ln(s.amount)), placeholder: "0", value: ln(s.amount), invalid: !!A.amount, i: "reg-amount", autofocus: true }) + "</div></div>" +
+      '<div class="field"><label>Categoría</label><div class="chips">' + CATS.map(function (V) { return Chip(V.id, { Icon: V.Icon, on: s.category === V.id, a: "reg-cat", d: { v: V.id } }); }).join("") + "</div></div>" +
+      '<div class="field"><label for="note">Nota (opcional)</label>' + textInput({ id: "note", placeholder: "Ej. almuerzo con amigos", value: s.note, i: "reg-note" }) + "</div>" +
+      Btn("Guardar gasto", { type: "submit", full: true }) +
+      Btn("Cancelar", { type: "button", variant: "ghost", full: true, a: "nav", d: { to: "/gastos" } }) + "</form>";
+  } else {
+    body += '<div class="stack">' +
+      (SR ? '<button class="mic-btn ' + (s.listening ? "live" : "") + '" data-a="reg-mic" aria-label="' + (s.listening ? "Detener" : "Empezar a grabar") + '">' + icon("pc", 36) + "</button>" +
+        '<p class="muted c" style="text-align:center;margin:0">' + (s.listening ? "Te escucho…" : 'Toca y di, por ejemplo: "gasté 15 mil en almuerzo".') + "</p>"
+        : Alert("Tu navegador no permite dictado por voz. Escribe el gasto abajo y lo entiendo igual.", "warn")) +
+      '<form class="composer" style="position:static" data-f="reg-voice">' + textInput({ aria: "Dilo o escríbelo", placeholder: "Dilo o escríbelo…", value: s.voiceText, i: "reg-voicetext" }) +
+      '<button class="send-btn" aria-label="Enviar">' + icon("zc", 18) + "</button></form>" +
+      (s.voiceErr ? Alert(E(s.voiceErr)) : "") +
+      (s.parsed ? '<section class="card stack" aria-label="Esto fue lo que entendí"><b>Esto fue lo que entendí:</b>' +
+        '<div class="row"><span class="muted">Monto</span><span class="spacer"></span><b class="num">' + ae(s.parsed.amount) + "</b></div>" +
+        '<div class="row"><span class="muted">Categoría</span><span class="spacer"></span><b>' + E(s.parsed.category) + "</b></div>" +
+        '<div class="row"><span class="muted">Nota</span><span class="spacer"></span><b>' + (s.parsed.note ? E(s.parsed.note) : "—") + "</b></div>" +
+        '<div class="row">' + Btn("Editar", { variant: "tertiary", full: true, a: "reg-edit" }) + Btn("Confirmar", { full: true, a: "reg-confirm" }) + "</div></section>" : "") + "</div>";
+  }
+  return Screen("Registrar gasto", "/gastos", body);
+}
+
+function Goals(snap) {
+  const c = snap;
+  return '<div class="stack"><div class="row"><h1 style="margin:0">Metas</h1><span class="spacer"></span>' +
+    Btn(icon("es", 16) + " Crear", { size: "small", a: "nav", d: { to: "/metas/nueva" } }) + "</div>" +
+    (c.goals.length === 0 ? '<div class="empty"><p style="margin:0 0 14px">Tu primera meta empieza aquí.</p>' + Btn("Crear una meta", { a: "nav", d: { to: "/metas/nueva" } }) + "</div>" : "") +
+    c.goals.map(function (u) {
+      return '<button class="card tap" data-a="nav" data-to="/metas/' + E(u.id) + '" style="cursor:pointer"><div class="row"><span class="icon-tile lime">' + icon(goalIcon(u.name), 22) + "</span>" +
+        '<div style="flex:1;min-width:0"><h3 style="margin:0">' + E(u.name) + '</h3><span class="small muted">' + (u.done ? "Meta cumplida" : "Meta de ahorro") + "</span></div>" +
+        (u.done ? '<span class="pill dark">' + icon("sn", 13) + " Lista</span>" : '<span class="pill">' + u.pct + "%</span>") + "</div>" +
+        '<div class="row wrap" style="margin:16px 0 8px"><b class="num">' + ae(u.saved) + '</b><span class="spacer"></span><span class="small muted">de ' + ae(u.target) + "</span></div>" +
+        '<div class="bar"><span style="width:' + u.pct + '%"></span></div></button>';
+    }).join("") + "</div>";
+}
+
+function NewGoal() {
+  const s = ui.ng || (ui.ng = { name: "", target: "", errors: {} });
+  const j = s.errors;
+  return Screen("Crear meta", "/metas",
+    '<form class="stack" data-f="ng-submit" novalidate>' +
+    Field("Nombre", "gname", j.name, "", textInput({ id: "gname", placeholder: "Ej. Viaje a Cartagena", value: s.name, invalid: !!j.name, i: "ng-name" })) +
+    '<div class="chips scroll">' + GOAL_IDEAS.map(function (P) { return Chip(P, { on: s.name === P, a: "ng-idea", d: { v: P } }); }).join("") + "</div>" +
+    Field("¿Cuánto necesitas?", "gtarget", j.target, "", moneyInput({ id: "gtarget", placeholder: "$ 1.500.000", value: s.target ? "$ " + ln(s.target) : "", invalid: !!j.target, i: "ng-target" })) +
+    Btn("Crear meta", { type: "submit", full: true }) + "</form>");
+}
+
+function GoalDetail(id, edit, snap) {
+  const k = snap.goals.find(function (ce) { return ce.id === id; });
+  const s = ui.gd || (ui.gd = { amount: "", err: "", editing: !!edit, name: k ? k.name : "", target: k ? String(k.target) : "", celebrate: false });
+  if (!k) return Screen("Meta", "/metas", '<div class="empty">No encontré esa meta.</div>');
+  const Re = Math.max(0, k.target - k.saved);
+  if (s.celebrate || k.done) {
+    return Screen("Meta cumplida", "/metas",
+      '<div class="success-mark">' + icon("Ec", 34) + "</div>" +
+      '<h1 style="text-align:center;margin-bottom:0">¡Lo lograste!</h1>' +
+      '<p class="muted" style="text-align:center">Completaste "' + E(k.name) + '" con ' + ae(k.saved) + ".</p>" +
+      Btn("Crear otra meta", { full: true, a: "nav", d: { to: "/metas/nueva" } }) +
+      Btn("Volver a mis metas", { full: true, variant: "ghost", a: "gd-back" }));
+  }
+  return Screen("Tu meta", "/metas",
+    '<section class="card"><div class="row"><span class="icon-tile lime">' + icon(goalIcon(k.name), 22) + "</span>" +
+    '<div style="flex:1"><h2 style="margin:0">' + E(k.name) + '</h2><span class="small muted">Te faltan ' + ae(Re) + "</span></div>" +
+    '<span class="pill">' + k.pct + "%</span></div>" +
+    '<div class="row wrap" style="margin:18px 0 8px">' + Money(k.saved, "md") + '<span class="spacer"></span><span class="small muted">de ' + ae(k.target) + "</span></div>" +
+    '<div class="bar"><span style="width:' + k.pct + '%"></span></div></section>' +
+    (!s.editing ? '<form class="card stack" data-f="gd-contribute" novalidate><h3 style="margin:0">Abonar a esta meta</h3>' +
+      moneyInput({ aria: "Valor del abono", placeholder: "$ 50.000", value: s.amount ? "$ " + ln(s.amount) : "", invalid: !!s.err, i: "gd-amount" }) +
+      (s.err ? '<span class="field-error">' + E(s.err) + "</span>" : "") + Btn("Abonar", { type: "submit", full: true }) + "</form>" : "") +
+    (s.editing ? '<form class="card stack" data-f="gd-edit" novalidate><h3 style="margin:0">Ajustar meta</h3>' +
+      Field("Nombre", "ename", "", "", textInput({ id: "ename", value: s.name, i: "gd-name" })) +
+      Field("Valor objetivo", "etarget", "", "", moneyInput({ id: "etarget", value: s.target ? "$ " + ln(s.target) : "", i: "gd-target" })) +
+      (s.err ? Alert(E(s.err)) : "") + Btn("Guardar cambios", { type: "submit", full: true }) +
+      Btn("Cancelar", { type: "button", variant: "ghost", full: true, a: "gd-cancel" }) + "</form>"
+      : Btn("Ajustar meta", { full: true, variant: "tertiary", a: "gd-edit-open" })));
+}
+
+function Copilot(snap) {
+  const c = state, u = snap;
+  const s = ui.cp || (ui.cp = { text: "", loading: false });
+  const A = Fr(c.rewards);
+  return '<div class="stack"><div class="row">' + Mark() + '<div><h1 style="margin:0;font-size:24px">Copiloto</h1><span class="small muted">' + (A ? "NEXO Pro activo" : "Pregúntame sobre tu plata") + "</span></div>" +
+    '<span class="spacer"></span>' + (c.chat.length > 0 ? '<button class="icon-btn" aria-label="Nueva conversación" data-a="cp-clear">' + icon("Sp", 17) + "</button>" : "") + "</div>" +
+    '<div class="chat" aria-live="polite"><div class="bubble nexo"><div class="bubble-hd">' + Mark("small") + "NEXO</div>Hola. Con lo que registras te puedo decir cuánto te queda, cómo vas con tu meta y en qué se te va la plata. ¿Qué quieres saber?</div>" +
+    c.chat.map(function (_) {
+      if (_.from === "you") return '<div class="bubble you">' + E(_.text) + "</div>";
+      return '<div class="bubble nexo"><div class="bubble-hd">' + Mark("small") + "NEXO</div>" +
+        (_.insufficient ? '<div class="stack" style="gap:10px"><b>Me faltan datos para responder bien</b><span>Con al menos 3 gastos registrados puedo decirte algo útil. Hoy llevas ' + u.expenseCount + ".</span>" +
+          Btn("Registrar un gasto", { variant: "secondary", a: "nav", d: { to: "/gastos/nuevo" } }) + "</div>"
+          : E(_.text) + (_.source === "local" ? '<div class="bubble-src">Respuesta calculada en tu dispositivo.</div>' : "") +
+            (_.advice ? '<div class="card" style="margin-top:12px;background:var(--lime-50)"><b>Acción sugerida</b><p style="margin:6px 0 12px">' + E(_.advice.text) + "</p>" +
+              (_.resolved ? '<span class="small muted">' + (_.resolved === "keep" ? "Mantienes tu meta como está." : "Vas a ajustar tu meta.") + "</span>"
+                : '<div class="row">' + Btn("Mantener meta", { variant: "tertiary", size: "small", a: "cp-keep", d: { id: _.id } }) + Btn("Ajustar meta", { size: "small", a: "cp-adjust", d: { id: _.id, goal: _.advice.goalId } }) + "</div>") + "</div>" : "")) + "</div>";
+    }).join("") +
+    (s.loading ? '<div class="bubble nexo" aria-label="NEXO está escribiendo"><span class="typing"><i></i><i></i><i></i></span></div>' : "") +
+    '<div id="chat-end"></div></div>' +
+    '<div class="chips scroll" aria-label="Preguntas sugeridas">' + SUGGESTED.map(function (_) { return Chip(_, { a: "cp-suggest", d: { q: _ } }); }).join("") + "</div>" +
+    '<form class="composer" data-f="cp-send">' + textInput({ aria: "Escribe tu pregunta", placeholder: "Escribe tu pregunta sobre tu plata…", value: s.text, maxlength: 300, i: "cp-text" }) +
+    '<button class="send-btn" aria-label="Enviar"' + ((s.loading || !s.text.trim()) ? " disabled" : "") + ">" + icon("zc", 18) + "</button></form>" +
+    '<p class="small muted" style="margin:0">No compartas claves ni datos de tarjetas. NEXO da orientación general y no reemplaza a un asesor financiero.</p></div>';
+}
+
+function Forum() {
+  const c = state;
+  const s = ui.fo || (ui.fo = { q: "", cat: "Todas" });
+  const k = c.forum.posts.filter(function (j) { return (s.cat === "Todas" || j.category === s.cat) && (j.title + " " + j.body).toLowerCase().includes(s.q.toLowerCase()); });
+  return '<div class="stack"><div class="row"><h1 style="margin:0">Comunidad</h1><span class="spacer"></span>' +
+    Btn(icon("es", 16) + " Preguntar", { size: "small", a: "nav", d: { to: "/foro/nueva" } }) + "</div>" +
+    '<div class="search">' + icon("Np", 18) + textInput({ aria: "Buscar preguntas", placeholder: "Buscar o filtrar preguntas", value: s.q, i: "fo-q" }) + "</div>" +
+    '<div class="chips scroll" aria-label="Categorías">' + ["Todas"].concat(FORUM_CATS).map(function (j) { return Chip(j, { on: s.cat === j, a: "fo-cat", d: { v: j } }); }).join("") + "</div>" +
+    (k.length === 0 ? '<div class="empty">No encontré preguntas con eso.<div style="margin-top:12px">' + Btn("Hacer una pregunta nueva", { variant: "secondary", a: "nav", d: { to: "/foro/nueva" } }) + "</div></div>" : "") +
+    k.map(function (j) {
+      return '<button class="card tap" data-a="nav" data-to="/foro/' + E(j.id) + '" style="cursor:pointer"><div class="post-meta"><span class="avatar">' + E(initial(j.author)) + "</span><span>" + E(j.author) + "</span><span>·</span><span>" + E(j.category) + "</span>" +
+        (j.demo ? '<span class="pill soft">Ejemplo</span>' : "") + '</div><h3 style="margin:10px 0 6px">' + E(j.title) + '</h3><div class="post-meta">' + icon("kp", 15) + j.answers.length + " " + (j.answers.length === 1 ? "respuesta" : "respuestas") + "</div></button>";
+    }).join("") + "</div>";
+}
+
+function NewPost() {
+  const s = ui.np || (ui.np = { text: "", cat: "Ahorro", err: "", published: null });
+  if (s.published) {
+    return Screen("Pregunta publicada", "/foro",
+      '<div class="success-mark">' + icon("sn", 36) + "</div>" +
+      '<div class="card"><p style="margin:0">' + E(s.text.trim()) + "</p></div>" +
+      Alert("Otras personas de la comunidad ya pueden responderte. Te avisamos aquí cuando llegue una respuesta.", "ok") +
+      '<p class="small muted" style="margin:0">En esta demostración, las respuestas son de ejemplo y llegan a los pocos segundos.</p>' +
+      Btn("Ver respuestas", { full: true, a: "nav", d: { to: "/foro/" + s.published } }) +
+      Btn("Volver a la comunidad", { full: true, variant: "ghost", a: "nav", d: { to: "/foro" } }));
+  }
+  return Screen("Nueva pregunta", "/foro",
+    '<form class="stack" data-f="np-submit" novalidate>' + (s.err ? Alert(E(s.err)) : "") +
+    '<div class="field"><label for="q">Tu pregunta</label><textarea id="q" class="textarea" placeholder="Escribe tu pregunta sobre tu plata…" aria-invalid="' + !!s.err + '" data-i="np-text" data-fk="np-text">' + E(s.text) + "</textarea>" +
+    '<span class="small muted">Recuerda seguir las normas: sin enlaces, teléfonos, claves ni promociones.</span></div>' +
+    '<div class="field"><label>Categoría</label><div class="chips">' + FORUM_CATS.map(function (A) { return Chip(A, { on: s.cat === A, a: "np-cat", d: { v: A } }); }).join("") + "</div></div>" +
+    Btn("Publicar", { type: "submit", full: true }) + "</form>");
+}
+
+function PostDetail(id) {
+  const s = ui.pd || (ui.pd = { text: "", err: "" });
+  const w = state.forum.posts.find(function (P) { return P.id === id; });
+  if (!w) return Screen("Pregunta", "/foro", '<div class="empty">No encontré esa pregunta.</div>');
+  return Screen("Pregunta", "/foro",
+    '<section class="card"><div class="post-meta"><span class="avatar">' + E(initial(w.author)) + "</span><span>" + E(w.author) + "</span><span>·</span><span>" + E(ago(w.createdAt)) + "</span>" +
+    (w.demo ? '<span class="pill soft">Ejemplo</span>' : "") + '</div><h2 style="margin:12px 0 8px">' + E(w.title) + "</h2>" + (w.body !== w.title ? '<p style="margin:0">' + E(w.body) + "</p>" : "") + "</section>" +
+    '<section class="card"><h3>Respuestas (' + w.answers.length + ")</h3>" +
+    (w.answers.length === 0 ? '<p class="muted small" style="margin:0">Todavía nadie responde. Sé la primera persona.</p>' : "") +
+    w.answers.map(function (P) {
+      return '<div class="answer"><div class="post-meta"><span class="avatar">' + E(initial(P.author)) + "</span><span>" + E(P.author) + "</span>" + (P.demo ? '<span class="pill soft">Ejemplo</span>' : "") + "</div>" +
+        '<p style="margin:0">' + E(P.body) + '</p><div><button class="helpful ' + (P.mine ? "on" : "") + '" aria-pressed="' + !!P.mine + '" data-a="pd-helpful" data-post="' + E(w.id) + '" data-answer="' + E(P.id) + '">' + icon("Pp", 15) + " Marcar como útil · " + P.helpful + "</button></div></div>";
+    }).join("") + "</section>" +
+    '<form class="stack" data-f="pd-submit" novalidate>' + (s.err ? Alert(E(s.err)) : "") +
+    '<textarea class="textarea" aria-label="Tu respuesta" style="min-height:90px" placeholder="Escribe tu respuesta…" data-i="pd-text" data-fk="pd-text">' + E(s.text) + "</textarea>" +
+    Btn("Responder", { type: "submit", variant: "secondary", full: true }) + "</form>");
+}
+
+function Rewards(snap) {
+  const c = state, u = snap;
+  const y = Yl.find(function (j) { return u.best < j.days; });
+  return Screen("Racha y recompensas", "/",
+    '<section class="card card-lime"><div class="row">' + icon("bl", 24) + '<span class="eyebrow" style="color:var(--ink)">Racha actual</span></div>' +
+    '<div class="money xl">' + u.streak + ' <span style="font-size:22px">' + (u.streak === 1 ? "día" : "días") + "</span></div>" + Streak(u.week) +
+    '<p class="small" style="margin:14px 0 0">Tu mejor racha: ' + u.best + " " + (u.best === 1 ? "día" : "días") + ". " + (y ? 'Te faltan ' + (y.days - u.best) + ' para "' + E(y.title) + '".' : "Ya reclamaste todo lo disponible.") + "</p></section>" +
+    (Fr(c.rewards) ? '<div class="card row"><span class="pro-badge">PRO</span><span>NEXO Pro activo. Te quedan ' + dc(c.rewards) + " " + (dc(c.rewards) === 1 ? "día" : "días") + ".</span></div>" : "") +
+    '<h2 style="margin:4px 0 0">Recompensas</h2>' +
+    Yl.map(function (j) {
+      const w = u.best >= j.days, T = c.rewards.claimed.includes(j.id);
+      return '<section class="card reward ' + (w ? "" : "locked") + '"><span class="icon-tile ' + (w ? "lime" : "") + '">' + (w ? icon("lo", 22) : icon("xp", 22)) + "</span>" +
+        '<div style="flex:1"><h3 style="margin:0">' + E(j.title) + '</h3><p class="small muted" style="margin:4px 0 10px">' + E(j.text) + "</p>" +
+        (T ? '<span class="pill dark">' + icon("sn", 13) + " Canjeada</span>" : w ? Btn("Canjear", { size: "small", a: "rw-claim", d: { id: j.id } })
+          : '<span class="small muted">Se desbloquea con ' + j.days + " días de racha. Te faltan " + (j.days - u.best) + ".</span>") + "</div></section>";
+    }).join("") +
+    (c.rewards.claimed.includes("r3") ? Btn("Ver mi consejo en el copiloto", { variant: "tertiary", full: true, a: "nav", d: { to: "/copiloto" } }) : ""));
+}
+
+function Profile(snap) {
+  const c = state, u = snap;
+  const s = ui.pf || (ui.pf = { income: String(c.profile.income || ""), err: "" });
+  return Screen("Perfil", "/",
+    '<div class="row" style="gap:12px"><div class="card p16 spacer"><div class="row">' + icon("bl", 18) + '<span class="num" style="font-size:22px">' + u.streak + '</span></div><span class="small muted">días de racha</span></div>' +
+    '<div class="card p16 spacer"><span class="num" style="font-size:22px">' + (Fr(c.rewards) ? "Pro" : "Gratis") + '</span><div class="small muted">plan de NEXO</div></div></div>' +
+    '<form class="card stack" data-f="pf-income" novalidate><h3 style="margin:0">Información financiera</h3><label class="small muted" for="inc">Ingresos mensuales</label>' +
+    moneyInput({ id: "inc", value: s.income ? "$ " + ln(s.income) : "", invalid: !!s.err, i: "pf-income" }) +
+    (s.err ? '<span class="field-error">' + E(s.err) + "</span>" : "") + Btn("Guardar", { type: "submit", variant: "secondary", full: true }) +
+    (c.profile.accounts.length > 0 ? '<span class="small muted">Cómo manejas tu plata: ' + E(c.profile.accounts.join(", ")) + ".</span>" : "") + "</form>" +
+    '<section class="card stack"><div><h3 style="margin:0">Colores</h3><p class="small muted" style="margin:4px 0 0">Elige los colores que más te gusten. Se aplican a toda la app.</p></div>' +
+    '<div class="stack" style="gap:10px" role="group" aria-label="Colores de NEXO">' + PALETTES.map(function (i) {
+      return '<button class="pal-opt" aria-pressed="' + (curPalette === i.id) + '" data-a="pf-palette" data-id="' + i.id + '"><span class="pal-sw">' +
+        i.swatch.map(function (m) { return '<i style="background:' + m + '"></i>'; }).join("") + '</span><span style="flex:1"><b>' + E(i.name) + '</b><span class="small muted" style="display:block">' + E(i.note) + "</span></span>" +
+        (curPalette === i.id ? icon("sn", 18) : "") + "</button>";
+    }).join("") + "</div></section>" +
+    '<section class="card"><div class="row">' + icon("Cp", 20) + '<h3 style="margin:0">Privacidad</h3></div><p class="muted" style="margin:8px 0 0">NEXO no pide credenciales bancarias. Tus gastos y metas se guardan solo en este dispositivo. Al copiloto solo viajan cifras agregadas, nunca las descripciones de tus gastos.</p></section>' +
+    '<section class="card stack"><h3 style="margin:0">Modo demostración</h3><p class="small muted" style="margin:0">Carga 6 días de gastos de ejemplo. Si hoy registras uno, completas 7 días y desbloqueas NEXO Pro.</p>' +
+    Btn("Cargar datos de ejemplo", { variant: "tertiary", full: true, a: "pf-demo" }) + Btn("Reiniciar demo", { variant: "danger", full: true, a: "pf-reset" }) + "</section>");
+}
+
+function Notifications() {
+  const i = state.forum.notifications;
+  return Screen("Avisos", "/",
+    (i.length === 0 ? '<div class="empty">Aquí te aviso cuando alguien responda tus preguntas.</div>' : "") +
+    i.map(function (m) {
+      return '<button class="card tap row" style="cursor:pointer" data-a="nt-open" data-to="' + E(m.to) + '"><span class="icon-tile lime">•</span><div style="flex:1"><b>' + E(m.text) + '</b><div class="small muted">' + (m.read ? "Vista" : "Nueva") + "</div></div></button>";
+    }).join("") +
+    (i.some(function (m) { return !m.read; }) ? Btn("Marcar todo como visto", { variant: "ghost", full: true, a: "nt-read" }) : ""));
+}
+
+const TAB_PATHS = ["/", "/gastos", "/copiloto", "/metas", "/foro"];
+function routeView(h, snap) {
+  const r = parseRoute(h), u = r.path;
+  if (TAB_PATHS.includes(u)) {
+    const v = { "/": Home, "/gastos": Expenses, "/copiloto": Copilot, "/metas": Goals, "/foro": Forum }[u];
+    return { view: v(snap), tab: true, path: u };
+  }
+  let m;
+  if (u === "/gastos/nuevo") return { view: Register() };
+  if (u === "/metas/nueva") return { view: NewGoal() };
+  if ((m = u.match(/^\/metas\/([^/]+)$/))) return { view: GoalDetail(m[1], r.query.get("editar") === "1", snap) };
+  if (u === "/foro/nueva") return { view: NewPost() };
+  if ((m = u.match(/^\/foro\/([^/]+)$/))) return { view: PostDetail(m[1]) };
+  if (u === "/racha") return { view: Rewards(snap) };
+  if (u === "/perfil") return { view: Profile(snap) };
+  if (u === "/avisos") return { view: Notifications() };
+  return { view: Home(snap), tab: true, path: "/" };
+}
+
+/* ---------- Render ---------- */
+const root = document.getElementById("root");
+let chatKey = null;
+
+function appHtml() {
+  const h = fc();
+  const onboarded = state.profile.onboarded;
+  let body;
+  if (!onboarded) {
+    body = '<div class="app-shell">' + Onboarding() + "</div>";
+  } else {
+    const snap = Yf(state);
+    const m = routeView(h, snap);
+    body = '<div class="app-shell"><main class="main ' + (m.tab ? "" : "plain") + '">' + (m.tab ? TopBar(m.path, snap) : "") + m.view + "</main>" + (m.tab ? BottomNav(m.path) : "") + "</div>";
+  }
+  return body + '<div class="toast-zone" aria-live="polite">' + (toastText ? '<div class="toast">' + E(toastText) + "</div>" : "") + "</div>";
+}
+
+function render() {
+  const onb = state.profile.onboarded;
+  let h = fc();
+  if (!onb && !h.startsWith("/bienvenida")) { window.location.replace("#/bienvenida"); h = fc(); }
+  else if (onb && h.startsWith("/bienvenida")) { window.location.replace("#/"); h = fc(); }
+  const routeChanged = h !== lastHash;
+  if (routeChanged) { resetUI(); lastHash = h; chatKey = null; }
+
+  const active = document.activeElement;
+  let fk = null, ss = null, se = null, idx = -1, tag = null;
+  if (!routeChanged && active && root.contains(active)) {
+    if (active.dataset && active.dataset.fk) { fk = active.dataset.fk; ss = active.selectionStart; se = active.selectionEnd; }
+    else {
+      const all = root.querySelectorAll("button,input,textarea");
+      idx = Array.prototype.indexOf.call(all, active);
+      tag = active.tagName;
+    }
+  }
+  const sy = window.scrollY;
+  const chipScroll = Array.prototype.map.call(root.querySelectorAll(".chips.scroll"), function (e) { return e.scrollLeft; });
+  root.style.minHeight = root.offsetHeight + "px";
+  root.innerHTML = appHtml();
+
+  if (routeChanged) window.scrollTo(0, 0); else window.scrollTo(0, sy);
+  root.style.minHeight = "";
+  Array.prototype.forEach.call(root.querySelectorAll(".chips.scroll"), function (e, i) { if (!routeChanged && chipScroll[i] != null) e.scrollLeft = chipScroll[i]; });
+
+  let focused = false;
+  if (fk) {
+    const el = root.querySelector('[data-fk="' + fk + '"]');
+    if (el) {
+      el.focus({ preventScroll: true });
+      try {
+        if (el.dataset.end) { const l = el.value.length; el.setSelectionRange(l, l); }
+        else if (ss != null) el.setSelectionRange(ss, se);
+      } catch (e) {}
+      focused = true;
+    }
+  } else if (idx >= 0) {
+    const all = root.querySelectorAll("button,input,textarea");
+    if (all[idx] && all[idx].tagName === tag) { all[idx].focus({ preventScroll: true }); focused = true; }
+  }
+  if (!focused) {
+    const af = root.querySelector("[data-autofocus]");
+    if (af && !ui.afDone) { ui.afDone = true; af.focus(); }
+  }
+
+  if (h.split("?")[0] === "/copiloto" && onb) {
+    const key = state.chat.length + ":" + (ui.cp && ui.cp.loading);
+    if (key !== chatKey) {
+      chatKey = key;
+      const endEl = document.getElementById("chat-end");
+      if (endEl && endEl.scrollIntoView) endEl.scrollIntoView({ block: "end" });
+    }
+  }
+}
+
+/* ---------- Eventos ---------- */
+const ACT = {
+  nav: function (el) { nav(el.dataset.to); },
+  "onb-skip": function () { ui.onb.step = 3; render(); },
+  "onb-next": function () { ui.onb.step++; render(); },
+  "onb-back": function () { ui.onb.step = 2; render(); },
+  "onb-account": function (el) {
+    const v = el.dataset.v, a = ui.onb.accounts;
+    ui.onb.accounts = a.includes(v) ? a.filter(function (z) { return z !== v; }) : a.concat([v]);
+    render();
+  },
+  "onb-idea": function (el) { ui.onb.goalName = el.dataset.v; render(); },
+
+  "reg-tab": function (el) { ui.reg.tab = el.dataset.v; if (el.dataset.v === "escribir") ui.afDone = false; render(); },
+  "reg-cat": function (el) { ui.reg.category = el.dataset.v; render(); },
+  "reg-again": function () {
+    const s = ui.reg;
+    s.result = null; s.amount = ""; s.category = ""; s.note = ""; s.voiceText = ""; s.parsed = null; s.errors = {};
+    ui.afDone = false; render();
+  },
+  "reg-mic": function () {
+    const s = ui.reg;
+    if (!SR) return;
+    if (s.listening) { if (recognition && recognition.stop) recognition.stop(); return; }
+    const V = new SR();
+    recognition = V;
+    V.lang = "es-CO"; V.interimResults = false; V.maxAlternatives = 1;
+    V.onresult = function (xe) { const t = xe.results[0][0].transcript; s.voiceText = t; parseVoice(t); };
+    V.onerror = function () { s.listening = false; s.voiceErr = "No pude escucharte. Revisa el permiso del micrófono o escríbelo."; render(); };
+    V.onend = function () { s.listening = false; render(); };
+    s.voiceErr = ""; s.parsed = null; s.listening = true;
+    render();
+    V.start();
+  },
+  "reg-edit": function () {
+    const s = ui.reg, $ = s.parsed;
+    s.amount = String($.amount); s.category = $.category; s.note = $.note; s.tab = "escribir"; s.parsed = null; ui.afDone = false; render();
+  },
+  "reg-confirm": function () { confirmExpense(ui.reg.parsed); },
+
+  "gd-back": function () { ui.gd.celebrate = false; nav("/metas"); },
+  "gd-cancel": function () { ui.gd.editing = false; ui.gd.err = ""; render(); },
+  "gd-edit-open": function () { ui.gd.editing = true; render(); },
+
+  "cp-clear": function () { actions.chatClear(); },
+  "cp-suggest": function (el) { askCopilot(el.dataset.q); },
+  "cp-keep": function (el) { actions.chatResolve(el.dataset.id, "keep"); toast("Listo, mantienes tu meta"); },
+  "cp-adjust": function (el) { actions.chatResolve(el.dataset.id, "adjust"); nav("/metas/" + el.dataset.goal + "?editar=1"); },
+
+  "fo-cat": function (el) { ui.fo.cat = el.dataset.v; render(); },
+  "np-cat": function (el) { ui.np.cat = el.dataset.v; render(); },
+  "pd-helpful": function (el) { actions.toggleHelpful(el.dataset.post, el.dataset.answer); },
+
+  "rw-claim": function (el) {
+    const j = Yl.find(function (x) { return x.id === el.dataset.id; });
+    actions.claimReward(j.id);
+    if (j.id === "r3") {
+      actions.chatAdd({ id: pt(), from: "nexo", text: Jf(Yf(state)), source: "local" });
+      toast("Recompensa canjeada. Te dejé un consejo en el copiloto.");
+    } else toast("Recompensa canjeada: " + j.title);
+  },
+
+  "pf-palette": function (el) { curPalette = applyPalette(el.dataset.id); render(); },
+  "pf-demo": function () { actions.loadDemo(); toast("Datos de ejemplo cargados"); },
+  "pf-reset": function () {
+    if (window.confirm("Esto borra tus gastos, metas, chat y recompensas de este dispositivo. ¿Seguro?")) {
+      actions.reset(); nav("/bienvenida", { replace: true });
+    }
+  },
+  "nt-open": function (el) { actions.markNotificationsRead(); nav(el.dataset.to); },
+  "nt-read": function () { actions.markNotificationsRead(); }
+};
+
+const INP = {
+  "onb-income": function (v) { ui.onb.income = ro(v).slice(0, 10); },
+  "onb-goalname": function (v) { ui.onb.goalName = v; },
+  "onb-goaltarget": function (v) { ui.onb.goalTarget = ro(v).slice(0, 10); },
+  "reg-amount": function (v) { ui.reg.amount = ro(v).slice(0, 10); },
+  "reg-note": function (v) { ui.reg.note = v; },
+  "reg-voicetext": function (v) { ui.reg.voiceText = v; },
+  "ng-name": function (v) { ui.ng.name = v; },
+  "ng-target": function (v) { ui.ng.target = ro(v).slice(0, 10); },
+  "gd-amount": function (v) { ui.gd.amount = ro(v).slice(0, 10); },
+  "gd-name": function (v) { ui.gd.name = v; },
+  "gd-target": function (v) { ui.gd.target = ro(v).slice(0, 10); },
+  "cp-text": function (v) { ui.cp.text = v; },
+  "fo-q": function (v) { ui.fo.q = v; },
+  "np-text": function (v) { ui.np.text = v; },
+  "pd-text": function (v) { ui.pd.text = v; },
+  "pf-income": function (v) { ui.pf.income = ro(v).slice(0, 10); }
+};
+
+function parseVoice(V) {
+  const s = ui.reg;
+  const te = Hp(V);
+  if (!te.amount) { s.parsed = null; s.voiceErr = 'No pude entender el monto. Prueba con "gasté 15 mil en almuerzo".'; }
+  else { s.voiceErr = ""; s.parsed = te; }
+  render();
+}
+
+function confirmExpense(V) {
+  const c = state;
+  const te = { id: pt(), description: V.note || V.category, amount: V.amount, category: V.category, day: At(), createdAt: new Date().toISOString() };
+  const xe = bf(eo(c.expenses), eo(c.expenses.concat([te]))).filter(function (Pe) { return !c.rewards.claimed.includes(Pe.id); });
+  const s = ui.reg;
+  s.result = { expense: te, week: yc(c.expenses.concat([te])), streak: gc(c.expenses.concat([te])), unlocked: xe };
+  actions.addExpense(te);
+}
+
+async function askCopilot(text) {
+  const s = ui.cp;
+  const q = text.trim();
+  if (!q || s.loading) return;
+  s.text = "";
+  actions.chatAdd({ id: pt(), from: "you", text: q });
+  const snap = Yf(state);
+  const intent = Mc(q);
+  if (Yp(intent) && !snap.hasEnoughData) {
+    actions.chatAdd({ id: pt(), from: "nexo", insufficient: true, text: "Me faltan datos para responder bien." });
+    return;
+  }
+  s.loading = true;
+  render();
+  const J = await bp({ question: q, snapshot: snap, history: state.chat, pro: Fr(state.rewards) });
+  if (ui.cp === s) s.loading = false;
+  actions.chatAdd({ id: pt(), from: "nexo", text: J.text, source: J.source, advice: J.intent === "goal" ? Zf(snap) : null });
+}
+
+root.addEventListener("click", function (e) {
+  const el = e.target.closest("[data-a]");
+  if (!el || !root.contains(el)) return;
+  const fn = ACT[el.dataset.a];
+  if (fn) fn(el, e);
+});
+root.addEventListener("input", function (e) {
+  const el = e.target;
+  const k = el.dataset && el.dataset.i;
+  if (k && INP[k]) { INP[k](el.value, el); render(); }
+});
+
+const SUB = {
+  "onb-submit": function () {
+    const s = ui.onb, oe = {};
+    if (lt(s.income) <= 0) oe.income = "Escribe cuánto recibes al mes.";
+    if (s.goalName.trim().length < 2) oe.goalName = "Cuéntame qué quieres lograr.";
+    if (lt(s.goalTarget) <= 0) oe.goalTarget = "Escribe cuánto necesitas.";
+    s.errors = oe;
+    if (!Object.keys(oe).length) {
+      actions.completeOnboarding({ income: lt(s.income), accounts: s.accounts, goal: { name: s.goalName.trim(), target: lt(s.goalTarget) } });
+      nav("/", { replace: true });
+    } else render();
+  },
+  "reg-submit": function () {
+    const s = ui.reg, te = {};
+    if (lt(s.amount) <= 0) te.amount = "Revisa el monto. Debe ser un número mayor a cero.";
+    if (!s.category) te.category = "Elige una categoría.";
+    s.errors = te;
+    if (!Object.keys(te).length) confirmExpense({ amount: lt(s.amount), category: s.category, note: s.note.trim() });
+    else render();
+  },
+  "reg-voice": function () { parseVoice(ui.reg.voiceText); },
+  "ng-submit": function () {
+    const s = ui.ng, A = {};
+    if (s.name.trim().length < 2) A.name = "Ponle un nombre a tu meta.";
+    if (lt(s.target) <= 0) A.target = "Escribe cuánto necesitas.";
+    s.errors = A;
+    if (!Object.keys(A).length) {
+      actions.addGoal({ name: s.name.trim(), target: lt(s.target) });
+      toast("Meta creada");
+      nav("/metas");
+    } else render();
+  },
+  "gd-contribute": function () {
+    const s = ui.gd, snap = Yf(state);
+    const id = parseRoute(fc()).path.split("/")[2];
+    const k = snap.goals.find(function (g) { return g.id === id; });
+    const Ne = lt(s.amount);
+    if (Ne <= 0) { s.err = "Escribe un valor mayor a $0."; render(); return; }
+    s.err = "";
+    const $e = k.saved + Ne >= k.target;
+    actions.contribute(k.id, Ne);
+    s.amount = "";
+    if ($e && !k.done) { s.celebrate = true; render(); } else toast("Abono registrado");
+  },
+  "gd-edit": function () {
+    const s = ui.gd;
+    const id = parseRoute(fc()).path.split("/")[2];
+    if (s.name.trim().length < 2 || lt(s.target) <= 0) { s.err = "Revisa el nombre y el valor de la meta."; render(); return; }
+    actions.updateGoal(id, { name: s.name.trim(), target: lt(s.target) });
+    s.err = ""; s.editing = false;
+    toast("Meta actualizada");
+  },
+  "cp-send": function () { askCopilot(ui.cp.text); },
+  "np-submit": function () {
+    const s = ui.np, B = Rc(s.text);
+    if (!B.ok) { s.err = B.reason; render(); return; }
+    s.err = "";
+    s.published = actions.publishPost({ text: s.text, category: s.cat });
+    render();
+  },
+  "pd-submit": function () {
+    const s = ui.pd;
+    const id = parseRoute(fc()).path.split("/")[2];
+    const A = Rc(s.text);
+    if (!A.ok) { s.err = A.reason; render(); return; }
+    s.err = "";
+    const body = s.text.trim();
+    s.text = "";
+    actions.addAnswer(id, body);
+  },
+  "pf-income": function () {
+    const s = ui.pf;
+    if (lt(s.income) <= 0) { s.err = "Escribe un valor mayor a $0."; render(); return; }
+    s.err = "";
+    actions.updateIncome(lt(s.income));
+    toast("Ingresos actualizados");
+  }
+};
+root.addEventListener("submit", function (e) {
+  const f = e.target.closest("[data-f]");
+  if (!f) return;
+  e.preventDefault();
+  const fn = SUB[f.dataset.f];
+  if (fn) fn(f);
+});
+
+window.addEventListener("hashchange", function () { render(); });
+applyPalette(storedPalette());
+render();
+})();
+    </script>
+  </body>
+</html>
