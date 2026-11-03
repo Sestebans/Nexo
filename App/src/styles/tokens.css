@@ -1,0 +1,70 @@
+:root {
+  /* ===== Paleta base: "Lima y tinta" ===== */
+  --paper: #F6F2EA;      /* fondo */
+  --sf: #FFFFFF;         /* superficie de tarjetas */
+  --ink: #14142B;        /* texto y tarjeta oscura */
+  --ink2: #5B5B73;       /* texto secundario */
+  --ink3: #686880;
+  --ink-hover: #2A2A4A;
+  --line: #E4DFD3;
+  --sand: #ECE7DB;       /* fondos suaves: iconos, pestañas */
+  --outer: #E6E0D2;      /* fondo fuera del celular en pantallas grandes */
+
+  --lime: #C9F25C;       /* acento de marca */
+  --lime-d: #B8E23F;
+  --lime-50: #F1FAD6;
+
+  --ai: #3A4BFF;         /* solo para NEXO y el copiloto */
+  --ai-50: #E8EBFF;
+
+  --ok: #0B7A55;  --ok-50: #DDF1E8;
+  --wa: #8A5600;  --wa-50: #FBEBCB;
+  --er: #C73B3F;  --er-50: #FBE3E3;
+
+  /* categorías de gasto (siempre van con icono) */
+  --cat-food: #C2561C;
+  --cat-transport: #1F6FC2;
+  --cat-fun: #7A3FC4;
+  --cat-shop: #C22A66;
+  --cat-edu: #12795F;
+  --cat-other: #5B5B73;
+
+  /* alias heredados */
+  --bg: var(--paper);
+  --pri: var(--ink);
+  --pri-d: var(--ink);
+  --pri-50: var(--sand);
+  --pri-100: var(--line);
+  --sec: var(--lime);
+  --sec-50: var(--lime-50);
+  --in: var(--ai);
+  --in-50: var(--ai-50);
+
+  --r-s: 8px; --r-m: 12px; --r-l: 16px; --r-card: 20px; --r-btn: 16px;
+  --disp: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+
+  font-family: var(--body);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* ===== Paletas de prueba (se cambian desde el botón "Colores") ===== */
+:root[data-palette="coral"] {
+  --paper: #FFF5EE; --ink: #2A1038; --ink2: #66506F; --ink3: #6E5978; --ink-hover: #3E1F52;
+  --line: #F0DDD2; --sand: #F8E6DB; --outer: #F1DDD0;
+  --lime: #FF8F70; --lime-d: #F27A58; --lime-50: #FFE3D9;
+  --ai: #6C4BFF; --ai-50: #ECE6FF;
+}
+:root[data-palette="mar"] {
+  --paper: #EEF6F5; --ink: #0D2B33; --ink2: #4D6870; --ink3: #546F77; --ink-hover: #1C434E;
+  --line: #D5E4E2; --sand: #E0EEEC; --outer: #D9E6E4;
+  --lime: #7BE3C3; --lime-d: #5BD3AF; --lime-50: #D9F7EE;
+  --ai: #2F5BFF; --ai-50: #E4EBFF;
+}
+:root[data-palette="sol"] {
+  --paper: #FFFAEB; --ink: #1A1814; --ink2: #5E5846; --ink3: #655F4C; --ink-hover: #34302A;
+  --line: #EDE4C8; --sand: #F6EDCF; --outer: #EBE2C2;
+  --lime: #FFD23F; --lime-d: #F2C200; --lime-50: #FFF1B8;
+  --ai: #2748FF; --ai-50: #E6EAFF;
+}
