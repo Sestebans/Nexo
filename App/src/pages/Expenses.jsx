@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Check, ChevronRight, Gift, Mic, Plus, Send } from 'lucide-react'
+import { Check, ChevronRight, Gift, Mic, Pencil, Plus } from 'lucide-react'
 import Button from '../components/Button.jsx'
 import Screen from '../components/Screen.jsx'
 import ExpenseFields from '../components/ExpenseFields.jsx'
@@ -61,7 +61,6 @@ const dayFor = (when, otherDay) => (when === 'ayer' ? dayOffset(-1) : when === '
 export function NewExpense() {
   const { state, snapshot, actions } = useStore()
   const toast = useToast()
-  const [tab, setTab] = useState('escribir')
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('')
   const [note, setNote] = useState('')
@@ -70,10 +69,8 @@ export function NewExpense() {
   const [saved, setSaved] = useState(null)
   const [big, setBig] = useState(null)
 
-  // Voz o frase libre
-  const [phrase, setPhrase] = useState('')
-  const [parsed, setParsed] = useState(null)
-  const [voiceMsg, setVoiceMsg] = useState('')
+  // Voz: lo que se dicta rellena el mismo formulario
+  const [voiceMsg, setVoiceMsg] = useState(null) // { kind: 'ok' | 'warn', text }
   const [listening, setListening] = useState(false)
   const rec = useRef(null)
   useEffect(() => () => rec.current?.abort?.(), [])
@@ -120,23 +117,22 @@ export function NewExpense() {
 
   function understand(text) {
     const p = parseExpense(text)
-    if (!p.amount) { setParsed(null); setVoiceMsg('No pude entender el monto. Prueba con "gasté 15 mil en almuerzo".'); return }
-    setVoiceMsg(''); setParsed(p)
+    if (!p.amount) { setVoiceMsg({ kind: 'warn', text: 'No pude entender el monto. Prueba con "gasté 15 mil en almuerzo" o escríbelo abajo.' }); return }
+    setAmount(String(p.amount)); setCategory(p.category); setNote(p.note); setWhen(p.when); setErrors({}); setBig(null)
+    setVoiceMsg({ kind: 'ok', text: `Entendí: "${text}". Revisa los datos de abajo y guarda.` })
   }
   function listen() {
     if (!SR) return
     if (listening) { rec.current?.stop(); return }
     const r = new SR(); rec.current = r
     r.lang = 'es-CO'; r.interimResults = false; r.maxAlternatives = 1
-    r.onresult = ev => { const t = ev.results[0][0].transcript; setPhrase(t); understand(t) }
-    r.onerror = () => { setListening(false); setVoiceMsg('No pude escucharte. Revisa el permiso del micrófono o escríbelo.') }
+    r.onresult = ev => understand(ev.results[0][0].transcript)
+    r.onerror = () => { setListening(false); setVoiceMsg({ kind: 'warn', text: 'No pude escucharte. Revisa el permiso del micrófono o escríbelo abajo.' }) }
     r.onend = () => setListening(false)
-    setVoiceMsg(''); setParsed(null); setListening(true); r.start()
+    setVoiceMsg(null); setListening(true); r.start()
   }
-  function editParsed() {
-    setAmount(String(parsed.amount)); setCategory(parsed.category); setNote(parsed.note); setWhen(parsed.when); setTab('escribir'); setParsed(null); setBig(null)
-  }
-  function reset() { setSaved(null); setAmount(''); setCategory(''); setNote(''); setWhen('hoy'); setPhrase(''); setParsed(null); setErrors({}); setBig(null) }
+  function focusWrite() { document.getElementById('amount')?.focus() }
+  function reset() { setSaved(null); setAmount(''); setCategory(''); setNote(''); setWhen('hoy'); setVoiceMsg(null); setErrors({}); setBig(null) }
 
   if (saved) {
     const e = saved.expense
@@ -157,14 +153,18 @@ export function NewExpense() {
   }
 
   return <Screen title="Registrar gasto" to="/gastos">
-    <div className="tabs" role="tablist">
-      <button role="tab" aria-selected={tab === 'escribir'} className={`tab ${tab === 'escribir' ? 'on' : ''}`} onClick={() => setTab('escribir')}>Escribir</button>
-      <button role="tab" aria-selected={tab === 'voz'} className={`tab ${tab === 'voz' ? 'on' : ''}`} onClick={() => setTab('voz')}><Mic size={16} /> Grabar audio</button>
+    <div className="input-modes">
+      {SR && <button type="button" className={`mode-btn ${listening ? 'live' : ''}`} onClick={listen}><Mic size={20} /> {listening ? 'Te escucho… toca para parar' : 'Grabar audio'}</button>}
+      <button type="button" className="mode-btn" onClick={focusWrite}><Pencil size={20} /> Escribir</button>
     </div>
+    {!listening && (SR
+      ? <p className="muted small" style={{ margin: 0 }}>Toca "Grabar audio" y di, por ejemplo: "gasté 15 mil en almuerzo". Se llenan los datos y tú confirmas.</p>
+      : <Alert>Tu navegador no permite dictado por voz. Escribe el gasto abajo.</Alert>)}
+    {voiceMsg && <Alert kind={voiceMsg.kind}>{voiceMsg.text}</Alert>}
 
-    {big && <BigAmountConfirm amount={big.amount} income={snapshot.income} onFix={() => { setBig(null); if (tab === 'voz') editParsed() }} onKeep={() => save(big)} />}
+    {big && <BigAmountConfirm amount={big.amount} income={snapshot.income} onFix={() => setBig(null)} onKeep={() => save(big)} />}
 
-    {tab === 'escribir' && <form className="stack" onSubmit={submitForm} noValidate>
+    <form className="stack" onSubmit={submitForm} noValidate>
       {recent.length > 0 && <div className="field">
         <label>Repetir uno reciente</label>
         <div className="chips scroll" aria-label="Gastos recientes">{recent.map(e => <Chip key={e.id} Icon={categoryIcon(e.category)} onClick={() => guarded({ amount: e.amount, category: e.category, note: e.description, when: 'hoy' })}>{e.description} · {money(e.amount)}</Chip>)}</div>
@@ -172,27 +172,7 @@ export function NewExpense() {
       <ExpenseFields amount={amount} setAmount={setAmount} category={category} setCategory={setCategory} note={note} setNote={setNote} when={when} setWhen={setWhen} errors={errors} />
       <Button type="submit" full>Guardar gasto</Button>
       <Button type="button" variant="ghost" full onClick={() => navigate('/gastos')}>Cancelar</Button>
-    </form>}
-
-    {tab === 'voz' && <div className="stack">
-      {SR
-        ? <><button className={`mic-btn ${listening ? 'live' : ''}`} onClick={listen} aria-label={listening ? 'Detener' : 'Empezar a grabar'}><Mic size={36} /></button>
-          <p className="muted" style={{ textAlign: 'center', margin: 0 }}>{listening ? 'Te escucho…' : 'Toca y di, por ejemplo: "gasté 15 mil en almuerzo".'}</p></>
-        : <Alert kind="warn">Tu navegador no permite dictado por voz. Escribe el gasto abajo y lo entiendo igual.</Alert>}
-      <form className="composer" style={{ position: 'static' }} onSubmit={e => { e.preventDefault(); understand(phrase) }}>
-        <input className="input" aria-label="Dilo o escríbelo" placeholder="Dilo o escríbelo…" value={phrase} onChange={e => setPhrase(e.target.value)} />
-        <button className="send-btn" aria-label="Enviar"><Send size={18} /></button>
-      </form>
-      {voiceMsg && <Alert>{voiceMsg}</Alert>}
-      {parsed && <section className="card stack" aria-label="Esto fue lo que entendí">
-        <b>Esto fue lo que entendí:</b>
-        <div className="row"><span className="muted">Monto</span><span className="spacer" /><b className="num">{money(parsed.amount)}</b></div>
-        <div className="row"><span className="muted">Categoría</span><span className="spacer" /><b>{parsed.category}</b></div>
-        <div className="row"><span className="muted">Fecha</span><span className="spacer" /><b>{parsed.when === 'ayer' ? 'Ayer' : 'Hoy'}</b></div>
-        <div className="row"><span className="muted">Nota</span><span className="spacer" /><b>{parsed.note || '—'}</b></div>
-        <div className="row"><Button variant="tertiary" full onClick={editParsed}>Editar</Button><Button full onClick={() => guarded(parsed)}>Confirmar</Button></div>
-      </section>}
-    </div>}
+    </form>
   </Screen>
 }
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, Flame, Plus } from 'lucide-react'
+import { Check, Eye, EyeOff, Flame, Plus } from 'lucide-react'
 import Button from '../components/Button.jsx'
 import NexoOrb from '../components/NexoOrb.jsx'
 import { HelpButton, HelpNote, Money } from '../components/ui.jsx'
@@ -12,6 +12,13 @@ import { goalIcon } from '../lib/categories.js'
 export default function Home() {
   const { state, snapshot: s } = useStore()
   const [help, setHelp] = useState('') // '', 'day' o 'streak'
+  // Ocultar montos del resumen (se recuerda en este dispositivo)
+  const [hidden, setHidden] = useState(() => { try { return window.localStorage.getItem('nexo:hide') === '1' } catch { return false } })
+  const toggleHidden = () => setHidden(h => {
+    try { window.localStorage.setItem('nexo:hide', h ? '0' : '1') } catch { /* sin almacenamiento: solo dura esta visita */ }
+    return !h
+  })
+  const mask = v => hidden ? '$ ****' : money(v)
   const toggle = k => setHelp(h => (h === k ? '' : k))
   const recent = [...state.expenses].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)).slice(0, 3)
   const g = s.activeGoal
@@ -22,14 +29,18 @@ export default function Home() {
 
   return <div className="stack">
     <section className="hero-card" aria-label="Resumen del mes">
-      <div className="hero-label">{s.over ? 'Te pasaste este mes por' : 'Te quedan este mes'}</div>
-      <Money value={Math.abs(s.available ?? 0)} />
+      <div className="hero-label row">
+        <span>{s.over ? 'Te pasaste este mes por' : 'Te quedan este mes'}</span>
+        <span className="spacer" />
+        <button type="button" className="eye-btn" onClick={toggleHidden} aria-pressed={hidden} aria-label={hidden ? 'Mostrar montos' : 'Ocultar montos'}>{hidden ? <EyeOff size={20} /> : <Eye size={20} />}</button>
+      </div>
+      {hidden ? <span className="money" aria-label="Monto oculto">$ ****</span> : <Money value={Math.abs(s.available ?? 0)} />}
       <div className={`hero-bar ${s.over ? 'over' : ''}`} role="img" aria-label={`Has gastado el ${s.spentPct}% de tus ingresos`}><span style={{ width: `${s.spentPct}%` }} /></div>
       <div className="hero-meta">
-        <div>Gastado<b>{money(s.spent)}</b></div>
+        <div>Gastado<b>{mask(s.spent)}</b></div>
         <div style={{ textAlign: 'right' }}>
           {s.over ? 'Ingresos del mes' : <>Puedes gastar al día<HelpButton label="¿Cómo se calcula lo que puedes gastar al día?" open={help === 'day'} onClick={() => toggle('day')} /></>}
-          <b>{s.over ? money(s.income) : money(s.perDay)}</b>
+          <b>{mask(s.over ? s.income : s.perDay)}</b>
         </div>
       </div>
       {help === 'day' && <HelpNote dark>Es lo que te queda este mes dividido entre los días que faltan. Se actualiza cada vez que registras un gasto.</HelpNote>}
