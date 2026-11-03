@@ -48,10 +48,10 @@ export default function Home() {
         <h3 style={{ margin: 0 }}>{s.streak === 0 ? 'Empieza tu racha' : `${s.streak} ${s.streak === 1 ? 'día' : 'días'} de racha`}</h3>
         <HelpButton label="¿Qué es la racha?" open={help === 'streak'} onClick={() => toggle('streak')} />
         <span className="spacer" />
-        <Button variant="ghost" size="small" onClick={() => navigate('/racha')}>Recompensas</Button>
+        <Button variant="ghost" size="small" onClick={() => navigate('/racha')}>Ver racha</Button>
       </div>
       {help === 'streak' && <HelpNote>Cuenta los días seguidos en que registras al menos un gasto. Con 3, 7 y 14 días desbloqueas recompensas.</HelpNote>}
-      <p className="small" style={{ margin: '6px 0 0' }}>{s.streak === 0 ? 'Registra un gasto hoy y cuenta como el día 1.' : 'Registrar cada día me deja darte respuestas con sentido.'}</p>
+      {s.streak === 0 && <p className="small" style={{ margin: '6px 0 0' }}>Registra un gasto hoy y cuenta como el día 1.</p>}
       <div className="streak-days">
         {s.week.map(d => <div key={d.key} className={`streak-day ${d.on ? 'on' : ''} ${d.today ? 'today' : ''}`}>
           <span className="streak-dot">{d.on && <Check size={14} />}</span>{d.label}
